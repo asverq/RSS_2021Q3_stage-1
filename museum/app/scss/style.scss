@@ -74,7 +74,7 @@ html {
     }
 
     &__nav-wrap {
-        min-height: 200px;
+        min-height: 150px;
         max-width: $content-width;
         display: flex;
         justify-content: space-between;
@@ -84,7 +84,7 @@ html {
 }
 
 .logo-name {
-    padding-left: 70px;
+    padding-left: 74px;
     background: url(../img/header-logo.svg) no-repeat;
     font-family: $font-Forum;
     font-weight: 400;
@@ -99,7 +99,7 @@ html {
 }
 
 .header-nav__item {
-    margin-left: 76px;
+    margin-left: 56px;
 }
 
 .header-nav__link {
@@ -127,11 +127,11 @@ html {
 }
 
 .welcome-slider {
-    height: 750px;
+    height: 810px;
     max-width: $main-width;
     margin: 0 auto;
     position: relative;
-    background-image: url(../img/bg-slider.jpg);
+    // background-image: url(../img/bg-slider.jpg);
     background-repeat: no-repeat;
     background-position: calc(50% + 352px) 100%;
     background-color: $color-dark-bg;
@@ -139,7 +139,7 @@ html {
     &__slogan-wrap {
         max-width: $content-width;
         margin: 0 auto;
-        padding-top: 114px;
+        padding-top: 150px;
         position: relative;
         z-index: 10;
     }
@@ -673,7 +673,7 @@ html {
 
 //***END  Contacts Section
 
-//***Footer 
+//***Footer
 .footer {
     margin-top: -4px;
     padding: 77px 0;
@@ -758,5 +758,5 @@ html {
     }
 }
 
-//***Footer 
+//***Footer
 @import "media";

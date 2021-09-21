@@ -1320,7 +1320,7 @@ html {
 }
 
 .main-header__nav-wrap {
-  min-height: 200px;
+  min-height: 150px;
   max-width: 1440px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1335,7 +1335,7 @@ html {
 }
 
 .logo-name {
-  padding-left: 70px;
+  padding-left: 74px;
   background: url(../img/header-logo.svg) no-repeat;
   font-family: "Forum", cursive;
   font-weight: 400;
@@ -1352,7 +1352,7 @@ html {
 }
 
 .header-nav__item {
-  margin-left: 76px;
+  margin-left: 56px;
 }
 
 .header-nav__link {
@@ -1379,11 +1379,10 @@ html {
 }
 
 .welcome-slider {
-  height: 750px;
+  height: 810px;
   max-width: 1920px;
   margin: 0 auto;
   position: relative;
-  background-image: url(../img/bg-slider.jpg);
   background-repeat: no-repeat;
   background-position: calc(50% + 352px) 100%;
   background-color: #030303;
@@ -1392,7 +1391,7 @@ html {
 .welcome-slider__slogan-wrap {
   max-width: 1440px;
   margin: 0 auto;
-  padding-top: 114px;
+  padding-top: 150px;
   position: relative;
   z-index: 10;
 }
