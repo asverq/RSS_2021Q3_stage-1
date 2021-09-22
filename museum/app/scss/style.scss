@@ -483,10 +483,15 @@ html {
         button {
             height: 20px;
             width: 20px;
+            margin: 0 5px;
             border: none;
             font-size: 0;
             background-color: transparent;
             cursor: pointer;
+
+            &:hover {
+                filter: invert(17%) sepia(0%) saturate(26%) hue-rotate(165deg) brightness(85%) contrast(85%);
+            }
         }
 
         .slick-prev {
@@ -500,6 +505,10 @@ html {
         .slick-dots {
             display: flex;
 
+            .slick-active button {
+                background-color: #333333;
+            }
+
             button {
                 height: 12px;
                 width: 12px;
@@ -510,6 +519,10 @@ html {
                 background-color: #999999;
                 font-size: 0;
                 cursor: pointer;
+
+                &:hover {
+                    background-color: #333333;
+                }
             }
         }
     }
@@ -581,8 +594,8 @@ html {
 
 .progress-bar {
     background: linear-gradient(to right,
-            #24809E 0%,
-            #24809E 40%,
+            #710707 0%,
+            #710707 40%,
             #C4C4C4 40%,
             #C4C4C4 100%);
     height: 7px;
@@ -914,7 +927,7 @@ html {
         align-items: center;
         justify-content: center;
         margin-left: 24px;
-        border: 2px #FFFFFF solid;
+        border: 1px #FFFFFF solid;
         border-radius: 50%;
         transition: 0.2s all;
 
@@ -922,6 +935,11 @@ html {
             filter: invert(56%) sepia(31%) saturate(363%) hue-rotate(356deg) brightness(90%) contrast(92%);
         }
     }
+}
+
+.panorama {
+    height: 99vh;
+    width: 100%;
 }
 
 //***Footer
