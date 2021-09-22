@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Louvre</title>
-  <link type="image/svg" rel="icon" href="img/favicon.svg">
+  <link type="image/ico" rel="icon" href="img/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@100;300;400;500;700&display=swap"
@@ -48,15 +48,40 @@
 
   <main class="main-block">
     <section class="welcome" id="welcome">
-      <div class="welcome-slider animate__animated animate__fadeIn">
-        <div class="welcome-slider__slogan-wrap">
-          <h2 class="welcome-slider__slogan major-heading animate__animated animate__bounceInDown">
+      <div class="welcome__wrapper">
+        <div class="welcome__slogan-wrap">
+          <h2 class="welcome__slogan major-heading animate__animated animate__bounceInDown">
             Welcome to&nbsp;the&nbsp;Louvre
           </h2>
-          <p class="welcome-slider__sub-slogan animate__animated animate__bounceInLeft animate__delay-1s">From the
-            castle to the museum</p>
-          <a class="welcome-slider__link animate__animated animate__bounceInUp animate__delay-2s" href="#">Discover
+          <p class="welcome__sub-slogan animate__animated animate__bounceInLeft animate__delay-1s">
+            From&nbsp;the&nbsp;castle&nbsp;to&nbsp;the&nbsp;museum</p>
+          <a class="welcome__link animate__animated animate__bounceInUp animate__delay-2s" href="#">Discover
             the Louvre</a>
+        </div>
+        <div class="welcome__slider welcome-slider animate__animated animate__fadeIn">
+          <div class="welcome-slider__item">
+            <img src="img/welcome-slider/1.jpg" alt="" class="welcome-slider__image">
+          </div>
+          <div class="welcome-slider__item">
+            <img src="img/welcome-slider/2.jpg" alt="" class="welcome-slider__image">
+          </div>
+          <div class="welcome-slider__item">
+            <img src="img/welcome-slider/3.jpg" alt="" class="welcome-slider__image">
+          </div>
+          <div class="welcome-slider__item">
+            <img src="img/welcome-slider/4.jpg" alt="" class="welcome-slider__image">
+          </div>
+          <div class="welcome-slider__item">
+            <img src="img/welcome-slider/5.jpg" alt="" class="welcome-slider__image">
+          </div>
+        </div>
+        <div class="welcome-slider__nav">
+          <div class="welcome-slider__counter">
+            <span class="counter__item counter__left">01</span>
+            <span class="counter__item counter__right">05</span>
+          </div>
+          <div class="welcome-slider__dots"></div>
+          <div class="welcome-slider__arrows-wrapper"></div>
         </div>
       </div>
     </section>
@@ -141,6 +166,11 @@
 
     <section class="video" id="video">
       <div class="video__wrap">
+        <div class="video__description-wrap">
+          <h2 class="video__description-head major-heading">Video journey</h2>
+          <p class="video__description-text">Enter and visit one of the most famous museums in the world and enjoy
+            masterpieces such as Mona Lisa or Hammurabi's Code</p>
+        </div>
         <div class="video-player">
           <div class="video-player__video">
             <button class="btn btn-on-screen" aria-label="play button on screen">
@@ -199,10 +229,43 @@
             </button>
           </div>
         </div>
-        <div class="video__description-wrap">
-          <h2 class="video__description-head major-heading">Video journey</h2>
-          <p class="video__description-text">Enter and visit one of the most famous museums in the world and enjoy
-            masterpieces such as Mona Lisa or Hammurabi's Code</p>
+
+        <div class="video-slider__wrapper">
+          <div class="video__slider video-slider">
+            <div class="video-slider__item">
+              <iframe width="452" height="254" src="https://www.youtube.com/embed/zp1BXPX8jcU?controls=0"
+                title="YouTube video player" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-slider__item">
+              <iframe width="452" height="254" src="https://www.youtube.com/embed/Vi5D6FKhRmo?controls=0"
+                title="YouTube video player" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-slider__item">
+              <iframe width="452" height="254" src="https://www.youtube.com/embed/NOhDysLnTvY?controls=0"
+                title="YouTube video player" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-slider__item">
+              <iframe width="452" height="254" src="https://www.youtube.com/embed/aWmJ5DgyWPI?controls=0"
+                title="YouTube video player" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+            <div class="video-slider__item">
+              <iframe width="452" height="254" src="https://www.youtube.com/embed/2OR0OCr6uRE?controls=0"
+                title="YouTube video player" loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="video-slider__dots-wrapper">
+            <div class="dots-subwrap"></div>
+          </div>
         </div>
       </div>
     </section>
