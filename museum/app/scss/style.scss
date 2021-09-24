@@ -489,10 +489,10 @@ html {
             font-size: 0;
             background-color: transparent;
             cursor: pointer;
+        }
 
-            &:hover {
-                filter: invert(17%) sepia(0%) saturate(26%) hue-rotate(165deg) brightness(85%) contrast(85%);
-            }
+        .slick-arrow:hover {
+            filter: saturate(100%) brightness(0%) invert(11%) sepia(23%) saturate(7460%) hue-rotate(343deg) brightness(114%) contrast(113%);
         }
 
         .slick-prev {
@@ -520,9 +520,10 @@ html {
                 background-color: #999999;
                 font-size: 0;
                 cursor: pointer;
+                transition: 0.3s;
 
                 &:hover {
-                    background-color: #333333;
+                    background-color: $color-dark-red;
                 }
             }
         }
@@ -634,8 +635,6 @@ html {
 .gallery {
     background-color: $color-dark-bg;
 
-
-
     &__wrapper {
         height: 2200px;
         width: $content-width;
@@ -663,12 +662,14 @@ html {
         flex-direction: column;
         flex-wrap: wrap;
         align-items: center;
-        gap: 20px;
+        column-gap: 25px;
+        row-gap: 15px;
     }
 
     &__item:nth-child(1) {
         margin-top: 50px;
     }
+
     &__item:nth-child(11) {
         margin-top: 50px;
     }
@@ -683,9 +684,8 @@ html {
 
 //***Ticket section
 .tickets {
-    padding-bottom: 75px;
-    background-color: $color-dark-bg;
-    color: #FFFFFF;
+    background-color: #FFFFFF;
+    color: #000000;
 
     &__wrap {
         max-width: $content-width;
@@ -696,6 +696,7 @@ html {
         margin-top: 0;
         padding-top: 77px;
         position: relative;
+        color: $color-gold;
     }
 
     &__sub-wrap {
@@ -719,7 +720,7 @@ html {
         line-height: 33px;
 
         &-sum {
-            margin-top: 25px;
+            margin-top: 64px;
             letter-spacing: 1.65px;
         }
     }
@@ -729,7 +730,11 @@ html {
         font-weight: 300;
         font-size: 22px;
         line-height: 26px;
-        color: #FFFFFF;
+        color: #000000;
+    }
+
+    &__radio-wrap {
+        margin-top: 50px;
     }
 
     &__radio {
@@ -744,13 +749,13 @@ html {
             top: 50%;
             transform: translateY(-50%);
             border-radius: 10px;
-            background-color: #FFFFFF;
+            background-color: #000000;
         }
     }
 
     &__ticket-type {
         display: block;
-        margin-top: 50px;
+        margin-top: 25px;
         padding-left: 40px;
         position: relative;
         cursor: pointer;
@@ -763,7 +768,7 @@ html {
             left: -1px;
             top: 50%;
             transform: translateY(-50%);
-            border: 2px #FFFFFF solid;
+            border: 2px #000000 solid;
             border-radius: 15px;
         }
     }
@@ -782,18 +787,22 @@ html {
         font-family: $font-Roboto;
         font-weight: 300;
         font-size: 22px;
-        color: #FFFFFF;
+        color: #000000;
         text-align: center;
     }
 
     &__amount-num-wrap {
         height: 90px;
         width: 150px;
-        margin-bottom: 35px;
+        margin-bottom: 11px;
         padding-top: 13px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        .calculator__text {
+            margin-top: 13px;
+        }
     }
 
     &__num-btn-wrap {
@@ -802,7 +811,7 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 3px #FFFFFF solid;
+        border: 3px #000000 solid;
     }
 
     &-btn {
@@ -810,20 +819,21 @@ html {
         font-family: $font-Roboto;
         font-weight: 400;
         font-size: 32px;
-        color: #FFFFFF;
+        color: #000000;
     }
 
     &-btn-sum {
         height: 50px;
         width: 175px;
-        margin-top: 52px;
+        margin-top: 60px;
         letter-spacing: 2px;
-        color: #000000;
-        background-color: #FFFFFF;
+        color: #FFFFFF;
+        background-color: #000000;
         border-radius: 2px;
         transition: 0.2s all;
 
         &:hover {
+            color: #000000;
             background-color: $color-gold;
         }
 
@@ -831,6 +841,15 @@ html {
             box-shadow: 0 0 5px $color-gold;
         }
     }
+}
+
+.parallax {
+    height: 400px;
+    width: 100%;
+    margin-top: 75px;
+    background-image: url(../img/parallax.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 //***END  Ticket section
@@ -841,7 +860,7 @@ html {
     position: relative;
 
     &__head {
-        margin-top: 78px;
+        margin-top: 75px;
         position: relative;
         color: $color-gold;
     }
@@ -866,16 +885,16 @@ html {
     }
 
     &__address {
-        margin-top: 32px;
+        margin-top: 22px;
         padding-bottom: 10px;
     }
 
     &__list {
-        margin-top: 38px;
+        margin-top: 50px;
     }
 
     &__item {
-        margin-top: 20px;
+        margin-top: 25px;
         font-family: $font-Roboto;
         font-style: normal;
         font-weight: 300;
@@ -907,7 +926,7 @@ html {
 //***Footer
 .footer {
     margin-top: -4px;
-    padding: 77px 0;
+    padding-top: 77px;
     background-color: $color-dark-bg;
 
     &__wrap {
@@ -918,7 +937,7 @@ html {
     }
 
     &__logo {
-        margin-top: 5px;
+        margin-top: 7px;
     }
 
     &__logo-link {
@@ -936,8 +955,8 @@ html {
     }
 
     &__nav {
-        margin-top: -3px;
-        margin-left: -2px;
+        margin-top: -1px;
+        margin-left: -29px;
     }
 
     &__nav-list {
@@ -945,7 +964,7 @@ html {
     }
 
     &__nav-item {
-        margin-left: 150px;
+        margin-left: 170px;
     }
 
     &__nav-link {
@@ -978,13 +997,36 @@ html {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-left: 24px;
+        margin-left: 25px;
         border: 1px #FFFFFF solid;
         border-radius: 50%;
         transition: 0.2s all;
 
         &:hover {
             filter: invert(56%) sepia(31%) saturate(363%) hue-rotate(356deg) brightness(90%) contrast(92%);
+        }
+    }
+
+    .sub-footer {
+        margin-top: 40px;
+        border-top: 3px solid #666666;
+
+        &__wrap {
+            height: 122px;
+            width: $content-width;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        &__text {
+            font-family: $font-Roboto;
+            font-weight: 200;
+            font-size: 22px;
+            line-height: 22px;
+            letter-spacing: 2px;
+            color: #FFFFFF;
         }
     }
 }
