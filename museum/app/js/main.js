@@ -8,8 +8,8 @@ $(function () {
     autoplaySpeed: 7000,
     speed: 600,
     appendArrows: $('.welcome-slider__arrows-wrapper'),
-    prevArrow: '<div class="welcome-slider__arrows arrow-left"></div>',
-    nextArrow: '<div class="welcome-slider__arrows arrow-right"></div>',
+    prevArrow: '<button class="welcome-slider__arrows arrow-left"></button>',
+    nextArrow: '<button class="welcome-slider__arrows arrow-right"></button>',
     appendDots: $('.welcome-slider__dots'),
   });
 });
@@ -23,18 +23,15 @@ $(function () {
     slidesToShow: 3,
     infinite: true,
     dots: true,
-    // autoplay: true,
     autoplaySpeed: 7000,
     speed: 600,
-    // prevArrow: '<div class="welcome-slider__arrows arrow-left"></div>',
-    // nextArrow: '<div class="welcome-slider__arrows arrow-right"></div>',
     appendArrows: $('.video-slider__dots-wrapper'),
     appendDots: $('.dots-subwrap'),
   });
 });
 
 
-
+//Video-Player
 const progress = document.querySelector(".progress-bar");
 
 progress.addEventListener("input", function () {
@@ -48,3 +45,24 @@ progress2.addEventListener("input", function () {
   const value = this.value;
   this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
 });
+//END___Video-Player
+
+
+//Random Gallery
+const galleryImg = document.querySelectorAll('.gallery__img');
+const rndArr = new Array(galleryImg.length).fill(1);
+
+for (let i = 1; i < galleryImg.length; i++) {
+  rndArr[i] = rndArr[i - 1] + 1;
+}
+
+shuffle(rndArr);
+
+for (let x = 0; x < galleryImg.length; x++) {
+  galleryImg[x].setAttribute('src', `img/gallery/gallery${rndArr[x]}.jpg`);
+}
+
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+}
+//END Random Gallery

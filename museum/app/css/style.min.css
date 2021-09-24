@@ -1553,9 +1553,9 @@ html {
   top: 0;
   left: 0;
   z-index: 10;
-  background: -webkit-gradient(linear, left top, right top, from(#000000), color-stop(50%, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0))), url(1.jpg);
-  background: -o-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%), url(1.jpg);
-  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%), url(1.jpg);
+  background: -webkit-gradient(linear, left top, right top, from(#000000), color-stop(50%, rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background: -o-linear-gradient(left, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0) 100%);
 }
 
 .welcome-slider__arrows-wrapper {
@@ -1569,6 +1569,7 @@ html {
   height: 30px;
   width: 30px;
   margin: 10px;
+  border: none;
   cursor: pointer;
 }
 
@@ -2025,6 +2026,65 @@ html {
 
 .btn-fullscreen {
   height: 36px;
+}
+
+.gallery {
+  background-color: #030303;
+}
+
+.gallery__wrapper {
+  height: 2200px;
+  width: 1440px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(80%, rgba(0, 0, 0, 0)), to(#000000));
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 80%, #000000 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, #000000 100%);
+  z-index: 10;
+  position: relative;
+}
+
+.gallery__wrapper::after {
+  content: "";
+  height: 360px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(#000000));
+  background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, #000000 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.gallery__list {
+  height: 2950px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+
+.gallery__item:nth-child(1) {
+  margin-top: 50px;
+}
+
+.gallery__item:nth-child(11) {
+  margin-top: 50px;
+}
+
+.gallery__description-head {
+  margin-top: 75px;
+  color: #FFFFFF;
 }
 
 .tickets {
