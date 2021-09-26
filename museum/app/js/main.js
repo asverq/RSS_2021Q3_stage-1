@@ -107,7 +107,6 @@ const buyNowBtn = document.querySelector('.calculator-btn-sum');
 const popupForm = document.querySelector('.tickets__popup-form');
 const popupFormClose = document.querySelector('.popup-form__close-btn');
 const popupOwerlay = document.querySelector('.popup-owerlay');
-console.log(buyNowBtn);
 buyNowBtn.addEventListener('click', (e) => {
   e.preventDefault();
   popupForm.classList.remove('hide');
@@ -126,7 +125,19 @@ popupOwerlay.addEventListener('click', () => {
 //END__Popup-form
 
 //Ripple Effect
+const bookBtn = document.querySelector('.result-card__button');
 
+bookBtn.addEventListener('click', function (e) {
+  const x = e.offsetX;
+  const y = e.offsetY;
+  const circle = document.createElement('span');
 
+  circle.classList.add('circle');
+  circle.style.top = y + 'px';
+  circle.style.left = x + 'px';
 
+  this.appendChild(circle);
+
+  setTimeout(() => circle.remove(), 500);
+})
 //END__Ripple Effect

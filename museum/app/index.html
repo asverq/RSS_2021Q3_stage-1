@@ -430,10 +430,8 @@
                 <span class="popup-form__sub-head">Tour to Louvre</span>
               </h2>
               <div class="popup-form__row date-row">
-                <input class="popup-form__input-date" type="date" name="date" id="popup-form__input-date" required
-                  placeholder="Date">
-                <input class="popup-form__input-time" type="time" name="time" id="popup-form__input-time" required
-                  placeholder="Time">
+                <input class="popup-form__input-date" type="date" name="date" id="popup-form__input-date" required data-value="Date">
+                <input class="popup-form__input-time" type="time" name="time" id="popup-form__input-time" required data-value="Time">
               </div>
               <div class="popup-form__row">
                 <input class="popup-form__input-name" type="text" name="username" placeholder="Name">
@@ -445,8 +443,7 @@
                 <input class="popup-form__input-phone" type="tel" name="userphone" placeholder="Phone">
               </div>
               <div class="popup-form__row row-select">
-                <select class="popup-form__select" id="popup-form__select" size="1" name="ticket-type"
-                  placeholder="Ticket Type">
+                <select class="popup-form__select" id="popup-form__select" size="1" name="ticket-type">
                   <option selected disabled>Ticket Type</option>
                   <option value="Permanent exhibition">Permanent exhibition</option>
                   <option value="Temporary exhibition">Temporary exhibition</option>
@@ -472,11 +469,11 @@
                   <div class="counter-set__num-wrap">
                     <button class="btn counter-set__btn" type="button"
                       onclick="this.nextElementSibling.stepDown()">–</button>
-                    <input class="counter-set__number" id="counter-set__number-1" type="number" min="0" max="20"
+                    <input class="counter-set__number" id="counter-set__number-2" type="number" min="0" max="20"
                       value="1" readonly>
                     <button class="btn counter-set__btn" type="button"
                       onclick="this.previousElementSibling.stepUp()">+</button>
-                    <label class="visibility-hidden" for="counter-set__number-1">senior count</label>
+                    <label class="visibility-hidden" for="counter-set__number-2">senior count</label>
                   </div>
                 </div>
               </fieldset>

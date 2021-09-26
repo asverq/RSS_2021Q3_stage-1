@@ -2330,7 +2330,7 @@ body {
   color: #030303;
   position: absolute;
   display: block;
-  content: attr(placeholder);
+  content: attr(data-value);
 }
 
 .tickets .popup-form__input-date:focus {
@@ -2369,7 +2369,7 @@ body {
   color: #030303;
   position: absolute;
   display: block;
-  content: attr(placeholder);
+  content: attr(data-value);
 }
 
 .tickets .popup-form__input-time:focus {
@@ -2874,12 +2874,44 @@ body {
   width: 220px;
   margin-top: 58px;
   margin-left: 250px;
+  position: relative;
+  overflow: hidden;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 22px;
   line-height: 26px;
   color: #FFFFFF;
   background-color: #710707;
+}
+
+.result-card__button .circle {
+  position: absolute;
+  background-color: #fff;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+      -ms-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
+  -webkit-animation: scale 0.5s ease-out;
+          animation: scale 0.5s ease-out;
+  z-index: 1000;
+}
+
+@-webkit-keyframes scale {
+  to {
+    -webkit-transform: translate(-50%, -50%) scale(3);
+            transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes scale {
+  to {
+    -webkit-transform: translate(-50%, -50%) scale(3);
+            transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
 }
 
 .calculator {
