@@ -794,11 +794,7 @@ body {
         transform: translateX(-100%);
         transition: transform 700ms cubic-bezier(.5, 0, .5, 1);
     }
-    .popup-owerlay {
-        height: 100%;
-        width: 100vw;
-        position: absolute;
-    }
+
     .popup-form {
         height: 850px;
         width: $content-width;
@@ -807,6 +803,7 @@ body {
         border: none;
         background-color: #fff;
         transition: transform 700ms cubic-bezier(.5, 0, .5, 1);
+        z-index: 1000;
         // outline: 1px red solid;
 
         &__wrap {
@@ -1700,7 +1697,21 @@ body {
         }
     }
 }
-
+.popup-owerlay {
+    height: 100%;
+    width: 99vw;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 900;
+    transition: all 0.7s;
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+}
 .panorama {
     height: 99vh;
     width: 100%;

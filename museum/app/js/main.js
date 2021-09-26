@@ -106,13 +106,27 @@ function moveEnd() {
 const buyNowBtn = document.querySelector('.calculator-btn-sum');
 const popupForm = document.querySelector('.tickets__popup-form');
 const popupFormClose = document.querySelector('.popup-form__close-btn');
+const popupOwerlay = document.querySelector('.popup-owerlay');
 console.log(buyNowBtn);
-buyNowBtn.addEventListener('click', () => {
+buyNowBtn.addEventListener('click', (e) => {
+  e.preventDefault();
   popupForm.classList.remove('hide');
+  popupOwerlay.classList.add('active');
 })
 
 popupFormClose.addEventListener('click', () => {
   popupForm.classList.add('hide');
+  popupOwerlay.classList.remove('active');
 })
 
+popupOwerlay.addEventListener('click', () => {
+  popupForm.classList.add('hide');
+  popupOwerlay.classList.remove('active');
+})
 //END__Popup-form
+
+//Ripple Effect
+
+
+
+//END__Ripple Effect
