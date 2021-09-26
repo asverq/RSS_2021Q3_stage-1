@@ -193,21 +193,9 @@
             </button>
           </div>
           <div class="video-player__bar">
-            <button class="btn prev-btn" aria-label="previous button">
-              <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3.79999 14.75L26.14 29.49C26.14 7.26 26.14 18.17 26.14 0L3.79999 14.75Z" fill="#B3B3B3" />
-                <path d="M0 29.49H4.19V0H0V29.49Z" fill="#B3B3B3" />
-              </svg>
-            </button>
             <button class="btn play-btn" aria-label="play button">
               <svg width="23" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M22.35 14.75L0 0C0 22.23 0 11.32 0 29.49L22.35 14.75Z" fill="#B3B3B3" />
-              </svg>
-            </button>
-            <button class="btn next-btn" aria-label=" next button">
-              <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M22.35 14.75L0 0C0 22.23 0 11.32 0 29.49L22.35 14.75Z" fill="#B3B3B3" />
-                <path d="M26.15 0H21.96V29.49H26.15V0Z" fill="#B3B3B3" />
               </svg>
             </button>
             <input class="progress-bar" id="progress-bar" type="range" value="40" min="0" max="100" step="1">
@@ -446,7 +434,7 @@
                 <select class="popup-form__select" id="popup-form__select" size="1" name="ticket-type">
                   <option selected disabled>Ticket Type</option>
                   <option value="Permanent exhibition">Permanent exhibition</option>
-                  <option value="Temporary exhibition">Temporary exhibition</option>
+                  <option class="selected" value="Temporary exhibition">Temporary exhibition</option>
                   <option value="Combined Admission">Combined Admission</option>
                 </select>
               </div>
@@ -639,8 +627,8 @@
     <div class="sub-footer">
       <div class="sub-footer__wrap">
         <p class="sub-footer__text">© 2021</p>
-        <p class="sub-footer__text">The Rolling Scopes School</p>
-        <p class="sub-footer__text">asverq</p>
+        <p class="sub-footer__text"><a href="https://rs.school/" target="_blank">The Rolling Scopes School</a></p>
+        <p class="sub-footer__text"><a href="https://github.com/asverq" target="_blank">asverq</a></p>
       </div>
     </div>
   </footer>

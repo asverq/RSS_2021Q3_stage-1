@@ -431,7 +431,7 @@ body {
         }
 
         &__image-wrap {
-            width: 50%;
+            width: 61%;
             top: 0;
             left: 0;
             position: absolute;
@@ -445,7 +445,7 @@ body {
             position: absolute;
             top: 50%;
             transform: translate(-50%, -50%);
-            left: 50%;
+            left: 61%;
             border: 5px #fff solid;
             border-radius: 50%;
             cursor: pointer;
@@ -599,7 +599,7 @@ body {
     &__bar {
         width: 100%;
         height: 85px;
-        padding: 0 19px;
+        padding: 0 12px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -609,7 +609,7 @@ body {
 
     &__valume-wrap {
         padding-left: 5px;
-        padding-right: 10px;
+        padding-right: 1s0px;
         display: flex;
         align-items: center;
     }
@@ -644,14 +644,19 @@ body {
     }
 }
 
+.play-btn {
+    margin-right: 15px;
+}
+
 .progress-bar {
+    height: 7px;
+    width: 930px;
+    margin-right: 10px;
     background: linear-gradient(to right,
             #710707 0%,
             #710707 40%,
             #C4C4C4 40%,
             #C4C4C4 100%);
-    height: 7px;
-    width: 820px;
     outline: none;
     cursor: pointer;
     transition: background 450ms ease-in;
@@ -668,7 +673,7 @@ body {
 }
 
 .btn-volume {
-    padding-right: 20px;
+    padding-right: 50px;
 }
 
 .volume-bar {
@@ -793,20 +798,21 @@ body {
     }
 
     .popup-form.hide {
-        transform: translateX(-100%);
+        transform: translate(-500%, -50%);
         transition: transform 700ms cubic-bezier(.5, 0, .5, 1);
     }
 
     .popup-form {
         height: 850px;
         width: $content-width;
-        position: absolute;
-        top: 23px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         border: none;
         background-color: #fff;
         transition: transform 700ms cubic-bezier(.5, 0, .5, 1);
         z-index: 1000;
-        // outline: 1px red solid;
 
         &__wrap {
             width: 970px;
@@ -974,6 +980,9 @@ body {
 
             &:focus {
                 box-shadow: 0 0 5px 2px $color-dark-red;
+            }
+            .selected {
+                background-color: #E7E7E7;
             }
         }
 
@@ -1378,6 +1387,13 @@ body {
     line-height: 26px;
     color: #FFFFFF;
     background-color: $color-dark-red;
+    transition: all 0.3s;
+
+    &:hover {
+        color: #000;
+        background-color: $color-gold;
+    }
+
     .circle {
         position: absolute;
         background-color: #fff;
@@ -1711,6 +1727,7 @@ body {
             justify-content: space-between;
         }
 
+        &__text a,
         &__text {
             font-family: $font-Roboto;
             font-weight: 200;
@@ -1719,12 +1736,16 @@ body {
             letter-spacing: 2px;
             color: #FFFFFF;
         }
+
+        &__text a:hover {
+            color: $color-gold;
+        }
     }
 }
 
 .popup-owerlay {
     height: 100%;
-    width: 99vw;
+    width: 100%;
     visibility: hidden;
     opacity: 0;
     position: absolute;
