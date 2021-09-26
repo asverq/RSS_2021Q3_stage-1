@@ -65,4 +65,54 @@ for (let x = 0; x < galleryImg.length; x++) {
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
 }
-//END Random Gallery
+//END__Random Gallery
+
+
+//BA-Slider
+const
+  baSlider = document.querySelector('.ba-slider'),
+  baSeparator = document.querySelector('.ba-slider__separator')
+
+let
+  baImgWrap = document.querySelector('.ba-slider__image-wrap')
+
+baSlider.addEventListener('mousedown', moveStart, false);
+baSlider.addEventListener('mouseup', moveEnd, false);
+
+let baPosX
+
+function moveStart(e) {
+  console.dir(e.target);
+  e.preventDefault();
+  baPosX = e.offsetX
+  baImgWrap.style.width = `${baPosX}px`
+  baSeparator.style.left = `${baPosX}px`
+  baSlider.addEventListener('mousemove', moveAction);
+}
+
+function moveAction(e) {
+  e.preventDefault();
+  baPosX = e.offsetX
+  baImgWrap.style.width = `${baPosX}px`
+  baSeparator.style.left = `${baPosX}px`
+}
+
+function moveEnd() {
+  baSlider.removeEventListener('mousemove', moveAction);
+}
+//END__BA-Slider
+
+//Popup-form
+const buyNowBtn = document.querySelector('.calculator-btn-sum');
+const popupForm = document.querySelector('.tickets__popup-form');
+const popupFormClose = document.querySelector('.popup-form__close-btn');
+console.log(buyNowBtn);
+buyNowBtn.addEventListener('click', () => {
+  popupForm.classList.remove('hide');
+})
+
+popupFormClose.addEventListener('click', () => {
+  popupForm.classList.add('hide');
+})
+
+//END__Popup-form

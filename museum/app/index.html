@@ -161,7 +161,15 @@
             looked different.
           </p>
         </div>
-        <img class="explore__image" src="img/explore-slider/before.jpg" alt="museum-picture" width="720" height="700">
+        <div class="explore__ba-slider ba-slider">
+          <img class="ba-slider__image" src="img/explore-slider/before.jpg" alt="museum-picture" width="720"
+            height="700">
+          <div class="ba-slider__image-wrap">
+            <img class="ba-slider__image" src="img/explore-slider/after.jpg" alt="museum-picture" width="720"
+              height="700">
+          </div>
+          <span class="ba-slider__separator"></span>
+        </div>
       </div>
     </section>
 
@@ -358,11 +366,8 @@
       <div class="tickets__wrap">
         <h2 class="tickets__head major-heading head-underline">Buy tickets</h2>
         <div class="tickets__sub-wrap">
-
           <img class="tickets__picture" src="img/ticket-picture.jpg" alt="ticket picture" width="720" height="550">
-
           <form class="tickets__calculator calculator">
-
             <div class="calculator__type-wrap">
               <p class="calculator__head">Ticket Type</p>
               <div class="calculator__radio-wrap">
@@ -381,9 +386,8 @@
                     value="Combined Admission">
                   <label class="calculator__ticket-type calculator__text" for="radio-3">Combined Admission</label>
                 </div>
-                            </div>
               </div>
-
+            </div>
             <div class="calculator__amount-wrap">
               <p class="calculator__head">Amount</p>
               <div class="calculator__amount-num-wrap">
@@ -413,9 +417,128 @@
               <p class="calculator__head calculator__head-sum">Total €<span class="calculator__sum">220</span></p>
               <button class="btn calculator-btn-sum calculator__text" type="button">Buy Now</button>
             </div>
-
           </form>
         </div>
+        <form class="tickets__popup-form popup-form hide">
+          <div class="popup-form__close-btn">
+            <div class="popup-form__close-btn--line"></div>
+          </div>
+          <div class="popup-form__wrap">
+            <div class="popup-form__col-left">
+              <h2 class="popup-form__head major-heading head-underline">
+                Booking tickets
+                <span class="popup-form__sub-head">Tour to Louvre</span>
+              </h2>
+              <div class="popup-form__row date-row">
+                <input class="popup-form__input-date" type="date" name="date" id="popup-form__input-date" required
+                  placeholder="Date">
+                <input class="popup-form__input-time" type="time" name="time" id="popup-form__input-time" required
+                  placeholder="Time">
+              </div>
+              <div class="popup-form__row">
+                <input class="popup-form__input-name" type="text" name="username" placeholder="Name">
+              </div>
+              <div class="popup-form__row">
+                <input class="popup-form__input-email" type="email" name="usermail" placeholder="E-mail">
+              </div>
+              <div class="popup-form__row">
+                <input class="popup-form__input-phone" type="tel" name="userphone" placeholder="Phone">
+              </div>
+              <div class="popup-form__row row-select">
+                <select class="popup-form__select" id="popup-form__select" size="1" name="ticket-type"
+                  placeholder="Ticket Type">
+                  <option selected disabled>Ticket Type</option>
+                  <option value="Permanent exhibition">Permanent exhibition</option>
+                  <option value="Temporary exhibition">Temporary exhibition</option>
+                  <option value="Combined Admission">Combined Admission</option>
+                </select>
+              </div>
+              <fieldset class="popup-form__counter-set">
+                <p class="counter-set__head">Entry ticket</p>
+                <div class="counter-set__row">
+                  <span class="counter-set__text">Basic 18+ (20 €)</span>
+                  <div class="counter-set__num-wrap">
+                    <button class="btn counter-set__btn" type="button"
+                      onclick="this.nextElementSibling.stepDown()">–</button>
+                    <input class="counter-set__number" id="counter-set__number-1" type="number" min="0" max="20"
+                      value="1" readonly>
+                    <button class="btn counter-set__btn" type="button"
+                      onclick="this.previousElementSibling.stepUp()">+</button>
+                    <label class="visibility-hidden" for="counter-set__number-1">senior count</label>
+                  </div>
+                </div>
+                <div class="counter-set__row">
+                  <span class="counter-set__text">Senior 65+ (10 €)</span>
+                  <div class="counter-set__num-wrap">
+                    <button class="btn counter-set__btn" type="button"
+                      onclick="this.nextElementSibling.stepDown()">–</button>
+                    <input class="counter-set__number" id="counter-set__number-1" type="number" min="0" max="20"
+                      value="1" readonly>
+                    <button class="btn counter-set__btn" type="button"
+                      onclick="this.previousElementSibling.stepUp()">+</button>
+                    <label class="visibility-hidden" for="counter-set__number-1">senior count</label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+            <div class="popup-form__col-right">
+              <div class="popup-form__result result__wrap">
+                <div class="result__left">
+                  <h3 class="result__head">Overview</h3>
+                  <p class="result__descr">Tour to Louvre</p>
+                  <p class="result__date">Friday, August 19</p>
+                  <p class="result__time">16 : 30</p>
+                  <p class="result__type">Temporary exhibition</p>
+                  <p class="result__type-text"><span class="result__type-count">2</span>Basic (20 €)</p>
+                  <p class="result__type-text"><span class="result__type-count">2</span>Senior (10 €)</p>
+                </div>
+                <div class="result__right">
+                  <img class="result__img" src="img/form-image.jpg" width="150" height="120" alt="">
+                  <p class="result__type-text">40 €</p>
+                  <p class="result__type-text">20 €</p>
+                </div>
+              </div>
+              <div class="result__total-wrap">
+                <p class="result__total">Total:</p>
+                <p class="result__total-sum">60 €</p>
+              </div>
+              <div class="result__card-wrap">
+                <div class="result__card-front">
+                  <div>
+                    <div>
+                      <label class="card-front__number-lable" for="card-front__number">Card number</label>
+                      <input type="text" class="card-front__number" id="card-front__number">
+                    </div>
+                    <div class="card-front__visa"></div>
+                  </div>
+                  <div class="card-front__exp-date-wrap">
+                    <p class="card-front__exp-text">Expiration date</p>
+                    <input class="card-front__exp-date" type="number" name="exp-date" id="card-front__exp-date1"
+                      value="03">
+                    <input class="card-front__exp-date" type="number" name="exp-date" id="card-front__exp-date2"
+                      value="2024">
+                  </div>
+                  <label class="card-front__cardholder-label" for="card-front__cardholder">Cardholder name</label>
+                  <input class="card-front__cardholder" type="text" id="card-front__cardholder">
+                </div>
+                <div class="result__card-back">
+                  <div class="card__back-line"></div>
+                  <div class="card-back__cvv-wrap">
+                    <div><label class="card-back__cvv-label">cvc/cvv</label></div>
+                    <div><input class="card-back__cvv" id="card-back__cvv" type="text"></div>
+                    <div class="card-back__cvv-text">
+                      <p>The last</p>
+                      <p>3 or 4 digits</p>
+                      <p>on back</p>
+                      <p>of the card</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="btn result-card__button">Book</button>
+              </div>
+            </div>
+          </div>
+        </form>
       </div>
       <div class="parallax"></div>
     </section>
@@ -524,6 +647,7 @@
       </div>
     </div>
   </footer>
+  <div class="popup-owerlay"></div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/libs.min.js"></script>
   <script src="js/main.js"></script>
