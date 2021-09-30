@@ -80,6 +80,7 @@ body {
     &__nav-wrap {
         min-height: 150px;
         max-width: $content-width;
+        padding: 0 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -98,12 +99,14 @@ body {
     color: #FFFFFF;
 }
 
-.header-nav__list {
-    display: flex;
+.header-nav {
+    width: 775px;
+    margin-left: 50px;
 }
 
-.header-nav__item {
-    margin-left: 56px;
+.header-nav__list {
+    display: flex;
+    justify-content: space-between;
 }
 
 .header-nav__link {
@@ -128,18 +131,20 @@ body {
 //***Welcome slider area
 
 .welcome {
-    height: 810px;
+    // height: 810px;
+    padding-bottom: 55px;
     background-color: $color-dark-bg;
 
     &__wrapper {
-        width: $content-width;
+        max-width: $content-width;
         margin: 0 auto;
+        padding: 0 20px;
         display: flex;
         position: relative;
     }
 
     &__slogan-wrap {
-        max-width: 440px;
+        max-width: 30.6%;
         padding-top: 150px;
         position: relative;
         z-index: 10;
@@ -161,6 +166,7 @@ body {
     }
 
     &__link {
+        min-width: 361px;
         margin-top: 78px;
         padding: 25px 68px;
         display: inline-block;
@@ -184,14 +190,18 @@ body {
 }
 
 .welcome-slider {
-    height: 810px;
-    width: 1000px;
+    height: 100%;
+    max-width: 69.4%;
     position: relative;
+
+    &__image {
+        max-width: 100%;
+    }
 
     &::before {
         content: "";
         width: 15%;
-        height: 810px;
+        height: 100%;
         position: absolute;
         top: 0;
         left: 0;
@@ -234,8 +244,8 @@ body {
         height: 120px;
         width: 600px;
         position: absolute;
-        right: 0;
-        bottom: 0;
+        right: 20px;
+        bottom: -55px;
         display: flex;
         align-items: center;
         justify-content: space-around;
@@ -270,10 +280,11 @@ body {
     }
 
     &__counter {
-        margin-left: 40px;
+        margin-top: 3px;
+        margin-left: 43px;
 
         .counter__item {
-            margin: 0 10px;
+            margin-left: 10px;
             font-family: Roboto;
             font-weight: 400;
             font-size: 22px;
@@ -282,6 +293,7 @@ body {
         }
 
         .counter__right {
+            margin-left: 20px;
             position: relative;
 
             &::before {
@@ -306,6 +318,7 @@ body {
     &__wrap {
         max-width: $content-width;
         margin: 0 auto;
+        padding: 0 20px;
         padding-top: 11px;
     }
 
@@ -323,6 +336,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    column-gap: 20px;
 
     &__item {
         margin-bottom: 35px;
@@ -390,11 +404,11 @@ body {
     &__wrap {
         max-width: $content-width;
         margin: 0 auto;
-        padding: 75px 0;
+        padding: 75px 20px;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
 
     &__head {
@@ -412,7 +426,8 @@ body {
         line-height: 38px;
 
         &-wrap {
-            width: 659px;
+            width: 679px;
+            padding-right: 20px;
         }
 
         &-in {
@@ -421,7 +436,8 @@ body {
     }
 
     .ba-slider {
-        width: 720px;
+        max-width: 720px;
+        // max-width: 50%;
         margin-top: 12px;
         position: relative;
 
@@ -480,10 +496,9 @@ body {
 //***Video Section
 .video {
     &__wrap {
-        margin: 0 auto;
-        padding-top: 75px;
-        padding-bottom: 65px;
         max-width: $content-width;
+        margin: 0 auto;
+        padding: 75px 20px 65px;
     }
 
     &__description-wrap {
@@ -494,8 +509,11 @@ body {
     }
 
     &__description-head {
+        max-width: 720px;
         margin: 0;
+        margin-right: 50px;
         color: $color-gold;
+        white-space: nowrap;
     }
 
     &__description-text {
@@ -508,24 +526,38 @@ body {
 }
 
 .video-slider {
-    width: 1482px;
-    margin-left: -21px;
+    width: calc(100% + 42px);
+    position: absolute;
+    left: -22px;
+
 
     &__wrapper {
-        width: $content-width;
         padding-top: 42px;
+        position: relative;
         overflow: hidden;
     }
 
     &__item {
+        padding: 0 22px;
+
         iframe {
-            margin: 0 21px;
-            border: none;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: cover;
+            border: 0;
+        }
+
+        &-wrap {
+            padding: 0 0 56% 0;
+            position: relative;
         }
     }
 
     &__dots-wrapper {
-        margin-top: 25px;
+        margin-top: 282px;
         padding: 0;
         display: flex;
         align-items: center;
@@ -690,14 +722,27 @@ body {
 .gallery {
     background-color: $color-dark-bg;
 
+    &__description-head {
+        margin-top: 75px;
+        margin-bottom: 75px;
+        color: #FFFFFF;
+    }
+
     &__wrapper {
         height: 2200px;
-        width: $content-width;
+        max-width: $content-width;
         margin: 0 auto;
-        overflow: hidden;
+        padding: 0 20px;
+        overflow-y: hidden;
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 80%, #000000 100%);
         z-index: 10;
         position: relative;
+    }
+
+    &__list {
+        display: flex;
+        column-gap: 35px;
+        overflow: hidden;
 
         &::after {
             content: "";
@@ -710,28 +755,20 @@ body {
         }
     }
 
-    &__list {
-        height: 2950px;
+    &__col--left {
+        margin-top: 50px;
+    }
+
+    &__col--right {
+        margin-top: 50px;
+    }
+
+    &__item {
+        margin-bottom: 19px;
+    }
+
+    &__img {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        column-gap: 25px;
-        row-gap: 15px;
-    }
-
-    &__item:nth-child(1) {
-        margin-top: 50px;
-    }
-
-    &__item:nth-child(11) {
-        margin-top: 50px;
-    }
-
-    &__description-head {
-        margin-top: 75px;
-        color: #FFFFFF;
     }
 }
 
@@ -744,9 +781,10 @@ body {
     color: #000000;
 
     &__wrap {
-        position: relative;
         max-width: $content-width;
         margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
         overflow: hidden;
     }
 
@@ -760,7 +798,8 @@ body {
     &__sub-wrap {
         margin-top: 102px;
         display: flex;
-        flex-wrap: wrap;
+        // flex-wrap: wrap;
+        gap: 30px;
         flex-direction: row;
         justify-content: space-between;
     }
@@ -981,6 +1020,7 @@ body {
             &:focus {
                 box-shadow: 0 0 5px 2px $color-dark-red;
             }
+
             .selected {
                 background-color: #E7E7E7;
             }
@@ -1406,15 +1446,12 @@ body {
     }
 }
 
-
 @keyframes scale {
     to {
         transform: translate(-50%, -50%) scale(3);
         opacity: 0;
     }
 }
-
-
 
 .calculator {
     width: 660px;
@@ -1575,6 +1612,12 @@ body {
     &__wrap {
         max-width: $content-width;
         margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    &__addr-wrap {
+        width: 300px;
+        flex-shrink: 0;
     }
 
     &__sub-wrap {
@@ -1626,6 +1669,10 @@ body {
         margin-top: 22px;
     }
 
+    &__image {
+        max-width: 100%;
+    }
+
 }
 
 //***END  Contacts Section
@@ -1639,6 +1686,7 @@ body {
     &__wrap {
         max-width: $content-width;
         margin: 0 auto;
+        padding: 0 20px;
         display: flex;
         justify-content: space-between;
     }
@@ -1720,8 +1768,9 @@ body {
 
         &__wrap {
             height: 122px;
-            width: $content-width;
+            max-width: $content-width;
             margin: 0 auto;
+            padding: 0 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;

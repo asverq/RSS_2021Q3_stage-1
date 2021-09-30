@@ -1,0 +1,190 @@
+@media (max-width: 1455px) {
+    .explore__wrap {
+        justify-content: center;
+    }
+
+    .explore__text-wrap {
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .tickets .popup-form__wrap {
+        padding: 71px 0;
+    }
+
+    .tickets .popup-form {
+        height: 768px;
+        width: 1024px;
+    }
+
+}
+
+@media (max-width: 1416px) {
+    .cards {
+        justify-content: space-around;
+
+    }
+
+}
+
+@media (max-width: 1200px) {
+    .gallery__wrapper {
+        height: 2000px;
+    }
+
+    .calculator {
+        justify-content: center;
+
+        &__type-wrap {
+            display: none;
+        }
+
+        &__amount-wrap {
+            align-items: start;
+        }
+    }
+}
+
+@media (max-width: 1159px) {
+    .video__description-head {
+        font-size: 57px;
+    }
+
+}
+
+
+
+@media (max-width: 1085px) {
+    .gallery__wrapper {
+        height: 1700px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .welcome {
+        padding-bottom: 67px;
+
+        &__slider {
+            margin-top: -10px;
+        }
+
+        &__slogan {
+            font-size: 50px;
+
+            &-wrap {
+                padding-top: 40px;
+            }
+
+        }
+
+        &__sub-slogan {
+            font-size: 24px;
+        }
+
+        &__link {
+            min-width: 300px;
+            margin-top: 50px;
+            padding: 19px 45px;
+            font-size: 20px;
+        }
+    }
+
+    .welcome-slider__nav {
+        height: 120px;
+        width: 700px;
+        padding-left: 158px;
+        bottom: -67px;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .welcome-slider__nav .slick-dots button {
+        height: 12px;
+        width: 12px;
+    }
+
+    .welcome-slider__arrows-wrapper {
+        margin-right: 52px;
+    }
+
+    .welcome-slider__counter .counter__item {
+        font-size: 19px;
+    }
+
+    .welcome-slider__counter {
+        margin-right: 8px;
+    }
+
+    //***Visiting*********************************
+    //********************************************
+    .visiting__head {
+        margin-top: 52px;
+        font-size: 50px;
+        line-height: 70px;
+    }
+
+    .visiting__cards-wrap {
+        margin-top: 85px;
+        padding: 0 64px;
+    }
+
+    .cards {
+        &__item {
+            width: 330px;
+            margin-bottom: 19px;
+        }
+
+        &__head {
+            margin-top: 20px;
+            font-size: 28px;
+            letter-spacing: 3px;
+
+            &::after {
+                width: 150px;
+            }
+        }
+
+        &__image {
+            max-width: 100%;
+        }
+
+        &__description {
+            font-size: 20px;
+            line-height: 23px;
+        }
+
+        &__sub-description {
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+
+    //***Explore****************************************
+    //**************************************************
+
+    .explore {
+        &__head {
+            margin-bottom: 83px;
+            font-size: 50px;
+            line-height: 75px;
+        }
+
+        &__wrap {
+            padding: 60px 20px;
+        }
+
+        &__text {
+            padding-bottom: 1px;
+            font-size: 20px;
+            line-height: 36px;
+
+            &:last-child {
+                display: none;
+            }
+        }
+        .ba-slider {
+            margin-top: 60px;
+        }
+    }
+
+}
