@@ -5,13 +5,13 @@ const
   controls = document.querySelector('.video-player__bar'),
   screenBtn = document.querySelector('.btn-on-screen'),
   playBtn = document.querySelector('.play-btn'),
-  rwdBtn = document.querySelector('.prev-btn'),
-  fwdBtn = document.querySelector('.next-btn'),
+  // rwdBtn = document.querySelector('.prev-btn'),
+  // fwdBtn = document.querySelector('.next-btn'),
   volumeBtn = document.querySelector('.btn-volume'),
   fullscreenBtn = document.querySelector('.btn-fullscreen'),
   volumeBar = document.querySelector(".volume-bar"),
   progressBar = document.querySelector(".progress-bar"),
-  timerBar = document.querySelector(".timer"),
+  // timerBar = document.querySelector(".timer"),
   speedBar = document.querySelector(".speed"),
   videoTitle = document.querySelector('.video-title')
 
@@ -53,12 +53,12 @@ media.addEventListener('ended', stopMedia);
 media.addEventListener('ended', autoNextMedia);
 media.addEventListener('click', playPauseMedia);
 screenBtn.addEventListener('click', playPauseMedia);
-rwdBtn.addEventListener('click', function () {
-  changeMedia('rwd')
-});
-fwdBtn.addEventListener('click', function () {
-  changeMedia('fwd')
-});
+// rwdBtn.addEventListener('click', function () {
+//   changeMedia('rwd')
+// });
+// fwdBtn.addEventListener('click', function () {
+//   changeMedia('fwd')
+// });
 playBtn.addEventListener('click', playPauseMedia);
 volumeBtn.addEventListener('click', toggleMute);
 fullscreenBtn.addEventListener('click', toggleFullScreen)
@@ -132,13 +132,13 @@ function speedPlay(arg) {
   if (arg === 'up') {
     if (media.playbackRate < 2.5) {
       media.playbackRate += 0.25;
-      speedBar.innerText = `${media.playbackRate}x`;
+      // speedBar.innerText = `${media.playbackRate}x`;
     }
   }
   if (arg === 'down') {
     if (media.playbackRate > 0.25) {
       media.playbackRate -= 0.25;
-      speedBar.innerText = `${media.playbackRate}x`;
+      // speedBar.innerText = `${media.playbackRate}x`;
     }
   }
 }
@@ -184,7 +184,7 @@ function stopMedia() {
   media.currentTime = 0;
   playBtn.children[0].setAttribute('class', '_icon-play-btn icon');
   screenBtn.style.display = 'block';
-  speedBar.innerText = '1x';
+  // speedBar.innerText = '1x';
   isPlaying = false;
 }
 
@@ -225,18 +225,18 @@ function liveSearchProgress() {
   `;
 }
 
-function timer() {
-  const minutes = Math.floor(media.currentTime / 60);
-  const hours = Math.floor(minutes / 60) % 24;
-  const seconds = Math.floor(media.currentTime % 60);
-  timerBar.innerText = `${
-    String(hours).padStart('2', '0')
-  }:${
-    String(minutes).padStart('2', '0')
-  }:${
-    String(seconds).padStart('2', '0')
-  }`;
-}
+// function timer() {
+//   const minutes = Math.floor(media.currentTime / 60);
+//   const hours = Math.floor(minutes / 60) % 24;
+//   const seconds = Math.floor(media.currentTime % 60);
+//   timerBar.innerText = `${
+//     String(hours).padStart('2', '0')
+//   }:${
+//     String(minutes).padStart('2', '0')
+//   }:${
+//     String(seconds).padStart('2', '0')
+//   }`;
+// }
 
 function updateProgressBar() {
   const position = (media.currentTime / media.duration) * 100;
@@ -250,7 +250,7 @@ function updateProgressBar() {
       #C4C4C4 100%
     )
   `;
-  timer();
+  // timer();
 }
 
 volumeBar.addEventListener("input", setVolume);

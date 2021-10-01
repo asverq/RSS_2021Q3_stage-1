@@ -33,6 +33,7 @@
     }
 
     .calculator {
+        width: 390px;
         justify-content: center;
 
         &__type-wrap {
@@ -61,6 +62,12 @@
 }
 
 @media (max-width: 1024px) {
+
+    .major-heading {
+        font-size: 50px;
+        line-height: 75px;
+    }
+
     .welcome {
         padding-bottom: 67px;
 
@@ -69,7 +76,7 @@
         }
 
         &__slogan {
-            font-size: 50px;
+            line-height: 90px;
 
             &-wrap {
                 padding-top: 40px;
@@ -119,7 +126,6 @@
     //********************************************
     .visiting__head {
         margin-top: 52px;
-        font-size: 50px;
         line-height: 70px;
     }
 
@@ -165,8 +171,8 @@
     .explore {
         &__head {
             margin-bottom: 83px;
-            font-size: 50px;
-            line-height: 75px;
+            // font-size: 50px;
+            // line-height: 75px;
         }
 
         &__wrap {
@@ -182,9 +188,203 @@
                 display: none;
             }
         }
+
         .ba-slider {
             margin-top: 60px;
         }
     }
+
+    .video {
+        &__wrap {
+            padding: 62px 20px 49px;
+        }
+
+        &__description-wrap {
+            padding-bottom: 39px;
+        }
+
+        &__description-head {
+            font-size: 50px;
+            line-height: 75px;
+            letter-spacing: 5px;
+        }
+
+        &__description-text {
+            display: none;
+        }
+
+    }
+
+    .video-player {
+        &__video-body {
+            padding: 0 0 45% 0;
+        }
+
+        .controls-body {
+            height: 60px;
+
+        }
+
+        .btn-on-screen {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            font-size: 150px;
+        }
+
+        .progress-bar {
+            height: 5px;
+
+            &::-webkit-slider-thumb {
+                width: 13px;
+                height: 13px;
+            }
+        }
+
+        &__bar {
+            padding-right: 25px;
+
+            .btn-volume {
+                font-size: 30px;
+            }
+
+            .btn-fullscreen {
+                font-size: 27px;
+            }
+        }
+    }
+
+
+    .video-slider__dots-wrapper {
+        margin-top: 200px;
+    }
+
+    //***Gallery*********************************
+    //*******************************************
+
+    .gallery {
+        &__wrapper {
+            height: 1460px;
+        }
+
+        &__description-head {
+            margin-top: 61px;
+            margin-bottom: 59px;
+        }
+    }
+
+    //***Tickets*********************************
+    //*******************************************
+
+    .tickets__head {
+        padding-top: 59px;
+    }
+
+    .tickets__sub-wrap {
+        margin-top: 84px;
+        gap: 50px;
+    }
+
+    .tickets__img-wrap {
+        width: 700px;
+        height: 440px;
+    }
+
+    .calculator {
+        width: 230px;
+
+        &__amount-num-wrap {
+            width: 175px;
+            margin-bottom: 25px;
+            padding-top: 16px;
+        }
+
+        &__num-btn-wrap {
+            margin-top: 10px;
+            justify-content: space-between;
+        }
+
+        &-btn {
+            width: 45px;
+        }
+
+        &__number {
+            padding-left: 5px;
+        }
+
+        &__head-sum {
+            margin-top: 25px;
+        }
+
+        &-btn-sum {
+            margin-top: 70px;
+        }
+    }
+
+    .parallax {
+        margin-top: 59px;
+    }
+
+    //***Contakts******************************
+    //*****************************************
+
+    .contacts {
+        padding-bottom: 69px;
+        &__head {
+            margin-top: 59px;
+        }
+        &__addr-head {
+            font-size: 24px;
+            line-height: 28px;
+        }
+        &__sub-wrap {
+            margin-top: 61px;
+        }
+        &__list {
+            margin-top: 35px;
+        }
+        &__item {
+            margin-top: 12px;
+            font-size: 20px;
+        }
+        &__addr-wrap {
+            width: 290px;
+        }
+        &__image {
+            max-width: 100%;
+            &.size_1920 {
+                display: none;
+            }
+            &.size_1024 {
+                display: block;
+            }
+            &.size_768 {
+                display: none;
+            }
+            &.size_420 {
+                display: none;
+            }
+        }
+    }
+
+
+    //***Footer********************************
+    //*****************************************
+    .footer {
+        padding-top: 53px;
+        &__nav {
+            width: 309px;
+        }
+        &__nav-wrap {
+            width: 549px;
+        }
+        &__socials {
+            margin-bottom: 12px;
+        }
+    }
+
 
 }

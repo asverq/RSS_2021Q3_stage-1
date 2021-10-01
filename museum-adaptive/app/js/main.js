@@ -31,21 +31,21 @@ $(function () {
 });
 
 
-//Video-Player
-const progress = document.querySelector(".progress-bar");
+// //Video-Player
+// const progress = document.querySelector(".progress-bar");
 
-progress.addEventListener("input", function () {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
-});
+// progress.addEventListener("input", function () {
+//   const value = this.value;
+//   this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
+// });
 
-const progress2 = document.querySelector(".volume-bar");
+// const progress2 = document.querySelector(".volume-bar");
 
-progress2.addEventListener("input", function () {
-  const value = this.value;
-  this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
-});
-//END___Video-Player
+// progress2.addEventListener("input", function () {
+//   const value = this.value;
+//   this.style.background = `linear-gradient(to right, #710707 0%, #710707 ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
+// });
+// //END___Video-Player
 
 
 //Random Gallery

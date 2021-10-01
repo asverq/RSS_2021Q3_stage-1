@@ -512,7 +512,7 @@ body {
     }
 
     &__description-wrap {
-        padding-bottom: 31px;
+        padding-bottom: 77px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -552,7 +552,7 @@ body {
 
     &__video-body {
         position: relative;
-        padding: 0 0 56% 0;
+        padding: 0 0 45% 0;
         overflow: hidden;
         background-color: rgb(49, 49, 49);
     }
@@ -588,7 +588,7 @@ body {
     //Controls Bar
     &__bar {
         width: 100%;
-        height: 5.3em;
+        height: 100%;
         padding: 0 19px;
         position: absolute;
         bottom: 0;
@@ -891,10 +891,22 @@ body {
     &__sub-wrap {
         margin-top: 102px;
         display: flex;
-        // flex-wrap: wrap;
         gap: 30px;
         flex-direction: row;
         justify-content: space-between;
+    }
+
+    &__img-wrap {
+        width: 720px;
+        height: 550px;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    &__picture {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
     }
 
     .popup-form__close-btn {
@@ -1693,7 +1705,7 @@ body {
 
 //***Contacts Section
 .contacts {
-    padding-bottom: 75px;
+    padding-bottom: 79px;
     position: relative;
 
     &__head {
@@ -1764,6 +1776,18 @@ body {
 
     &__image {
         max-width: 100%;
+        &.size_1920 {
+            display: block;
+        }
+        &.size_1024 {
+            display: none;
+        }
+        &.size_768 {
+            display: none;
+        }
+        &.size_420 {
+            display: none;
+        }
     }
 
 }
@@ -1799,21 +1823,27 @@ body {
     }
 
     &__nav-wrap {
+        width: 700px;
         display: flex;
+        justify-content: space-between;
     }
 
     &__nav {
-        margin-top: -1px;
-        margin-left: -29px;
+        // margin-top: -1px;
+        // margin-left: -29px;
+        width: 360px;
+        // margin-left: 141px;
+        display: flex;
+        justify-content: space-between;
     }
 
     &__nav-list {
         display: inline-block;
     }
 
-    &__nav-item {
-        margin-left: 170px;
-    }
+    // &__nav-item {
+    //     // margin-left: 170px;
+    // }
 
     &__nav-link {
         font-family: $font-Roboto;
