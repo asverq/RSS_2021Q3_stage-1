@@ -27,6 +27,14 @@ $(function () {
     speed: 600,
     appendArrows: $('.video-slider__dots-wrapper'),
     appendDots: $('.dots-subwrap'),
+    responsive: [
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+    ],
   });
 });
 
