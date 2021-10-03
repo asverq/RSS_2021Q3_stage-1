@@ -1,3 +1,31 @@
+const owerlayBody = document.querySelector('.popup-owerlay-transparent');
+const headerMenu = document.querySelector('.header-nav__sub-wrap');
+const headerMenuLink = document.querySelectorAll('.header-nav__link');
+const burger = document.querySelector('.header-nav__burger');
+const burgerLine = document.querySelector('.line');
+const welcomeSlogan = document.querySelector('.welcome__slogan-wrap');
+burger.addEventListener('click', () => {
+  headerMenu.classList.toggle('active');
+  burgerLine.classList.toggle('active');
+  welcomeSlogan.classList.toggle('active');
+  owerlayBody.classList.toggle('active');
+})
+
+headerMenuLink.forEach(item => [
+  item.addEventListener('click', () => {
+    headerMenu.classList.remove('active');
+    burgerLine.classList.remove('active');
+    welcomeSlogan.classList.remove('active');
+    owerlayBody.classList.remove('active');
+  })
+])
+owerlayBody.addEventListener('click', () => {
+  headerMenu.classList.remove('active');
+  burgerLine.classList.remove('active');
+  welcomeSlogan.classList.remove('active');
+  owerlayBody.classList.remove('active');
+})
+
 const counter = document.querySelector('.counter__left');
 
 $(function () {
@@ -27,14 +55,12 @@ $(function () {
     speed: 600,
     appendArrows: $('.video-slider__dots-wrapper'),
     appendDots: $('.dots-subwrap'),
-    responsive: [
-      {
-        breakpoint: 769,
-        settings: {
-          slidesToShow: 2,
-        }
-      },
-    ],
+    responsive: [{
+      breakpoint: 769,
+      settings: {
+        slidesToShow: 2,
+      }
+    }, ],
   });
 });
 

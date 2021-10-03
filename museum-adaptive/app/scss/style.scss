@@ -78,6 +78,7 @@ body {
 
 //***Header navigation area
 .main-header {
+    position: relative;
     background-color: $color-dark-bg;
 
     &__logo-link {
@@ -87,6 +88,8 @@ body {
         .main-header__logo-link:active {
             filter: invert(56%) sepia(31%) saturate(363%) hue-rotate(356deg) brightness(90%) contrast(92%);
         }
+
+        z-index: 1000;
     }
 
     &__nav-wrap {
@@ -102,6 +105,7 @@ body {
 
 .logo-name {
     padding-left: 74px;
+    position: relative;
     background: url(../img/header-logo.svg) no-repeat;
     font-family: $font-Forum;
     font-weight: 400;
@@ -114,6 +118,63 @@ body {
 .header-nav {
     width: 775px;
     margin-left: 50px;
+
+    &__burger {
+        padding: 5px;
+        width: 40px;
+        height: 40px;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all .5s ease;
+    }
+
+    &__bottom {
+        display: none;
+    }
+}
+
+
+
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    position: relative;
+}
+
+.line::before,
+.line::after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    display: block;
+    position: absolute;
+    transition: all .25s;
+}
+
+.line::before {
+    top: -8px;
+    background-color: #fff;
+}
+
+.line::after {
+    bottom: -8px;
+    background-color: #fff;
+}
+
+.active {
+    background-color: transparent;
+}
+
+.active::before {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.active::after {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 .header-nav__list {
@@ -122,6 +183,7 @@ body {
 }
 
 .header-nav__link {
+    position: relative;
     font-family: Roboto;
     font-weight: 200;
     font-size: 22px;
@@ -135,6 +197,22 @@ body {
 
     &:active {
         color: $color-gold;
+    }
+
+    &::after {
+        content: "";
+        height: 12px;
+        width: 8px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        background: url(../img/menu-arrow.svg);
+    }
+
+    &:hover {
+        filter: invert(56%) sepia(31%) saturate(363%) hue-rotate(356deg) brightness(90%) contrast(92%);
     }
 }
 
@@ -160,6 +238,12 @@ body {
         padding-top: 150px;
         position: relative;
         z-index: 10;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &__slogan-wrap.active {
+        visibility: hidden;
+        opacity: 0;
     }
 
     &__slogan {
@@ -605,6 +689,7 @@ body {
             position: absolute;
             left: 25px;
             top: -35px;
+            visibility: hidden;
             border-radius: 5px;
             background-color: rgba(0, 0, 0, 0.6);
             font-size: 20px;
@@ -674,7 +759,8 @@ body {
     }
 
     &__valume-wrap {
-        max-width: 265px;
+        width: 270px;
+        // max-width: 265px;
         padding-left: 5px;
         padding-right: 15px;
         display: flex;
@@ -1779,15 +1865,19 @@ body {
 
     &__image {
         max-width: 100%;
+
         &.size_1920 {
             display: block;
         }
+
         &.size_1024 {
             display: none;
         }
+
         &.size_768 {
             display: none;
         }
+
         &.size_420 {
             display: none;
         }
@@ -1845,7 +1935,7 @@ body {
         display: inline-block;
     }
 
-        &__nav-link {
+    &__nav-link {
         font-family: $font-Roboto;
         font-weight: 200;
         font-size: 22px;
@@ -1915,7 +2005,8 @@ body {
     }
 }
 
-.popup-owerlay {
+.popup-owerlay,
+.popup-owerlay-transparent {
     height: 100%;
     width: 100%;
     visibility: hidden;
@@ -1930,6 +2021,10 @@ body {
         visibility: visible;
         opacity: 1;
     }
+}
+
+.popup-owerlay-transparent {
+    background-color: transparent;
 }
 
 .panorama {
