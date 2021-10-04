@@ -93,7 +93,7 @@ for (let i = 1; i < galleryImg.length; i++) {
 shuffle(rndArr);
 
 for (let x = 0; x < galleryImg.length; x++) {
-  galleryImg[x].setAttribute('src', `img/gallery/gallery${rndArr[x]}.jpg`);
+  galleryImg[x].setAttribute('src', `img/gallery/gallery${rndArr[x]}.webp`);
 }
 
 function shuffle(array) {
