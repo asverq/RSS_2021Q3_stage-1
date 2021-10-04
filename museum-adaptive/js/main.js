@@ -64,6 +64,63 @@ $(function () {
   });
 });
 
+//You-tube_video
+
+function findVideos() {
+  let videos = document.querySelectorAll('.video-slider__item-wrap');
+
+  for (let i = 0; i < videos.length; i++) {
+      setupVideo(videos[i]);
+  }
+}
+
+function setupVideo(video) {
+  let link = video.querySelector('.video__link');
+  let media = video.querySelector('.video__media');
+  let button = video.querySelector('.video__button');
+  let id = parseMediaURL(media);
+
+  video.addEventListener('click', () => {
+      let iframe = createIframe(id);
+
+      link.remove();
+      button.remove();
+      video.appendChild(iframe);
+  });
+
+  link.removeAttribute('href');
+  video.classList.add('video--enabled');
+}
+
+function parseMediaURL(media) {
+  let regexp = /https:\/\/i\.ytimg\.com\/vi\/([a-zA-Z0-9_-]+)\/maxresdefault\.jpg/i;
+  let url = media.src;
+  let match = url.match(regexp);
+
+  return match[1];
+}
+
+function createIframe(id) {
+  let iframe = document.createElement('iframe');
+
+  iframe.setAttribute('allowfullscreen', '');
+  iframe.setAttribute('allow', 'autoplay');
+  iframe.setAttribute('src', generateURL(id));
+  iframe.classList.add('video__media');
+
+  return iframe;
+}
+
+function generateURL(id) {
+  let query = '?rel=0&showinfo=0&autoplay=1';
+
+  return 'https://www.youtube.com/embed/' + id + query;
+}
+
+findVideos();
+
+//END___You-tube_video
+
 //Random Gallery
 const galleryImg = document.querySelectorAll('.gallery__img');
 const rndArr = new Array(galleryImg.length).fill(1);
@@ -97,7 +154,6 @@ baSlider.addEventListener('mouseup', moveEnd, false);
 let baPosX
 
 function moveStart(e) {
-  console.dir(e.target);
   e.preventDefault();
   baPosX = e.offsetX
   baImgWrap.style.width = `${baPosX}px`
@@ -215,7 +271,7 @@ console.log(`
   при клике по ссылке в адаптивном меню, или при клике по любому месту сайта, кроме самого адаптивного меню, меню закрывается +2
   вёрстка меню соответствует макету на всех проверяемых разрешениях +6
 
-Не выполненные пункты:_______________________________________________________________
+Частично выполненные пункты:_______________________________________________________________
 
 Оптимизация скорости загрузки страницы +8 Оптимизация скорости загрузки страницы определяется при помощи сервиса https://developers.google.com/speed/pagespeed/insights/. Результат проверки скорости сайта для мобильных устройств:
   0 to 49 (red): Poor - не выполнено, 0 баллов
@@ -223,5 +279,5 @@ console.log(`
   90 to 100 (green): Good - выполнено полностью +8
 
 
-Итого, по подсчёту баллов выполненных пунктов: 150 баллов из возможных 150
+Итого, по подсчёту баллов выполненных пунктов: 156 баллов из возможных 150
 `);
