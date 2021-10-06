@@ -70,7 +70,7 @@ function findVideos() {
   let videos = document.querySelectorAll('.video-slider__item-wrap');
 
   for (let i = 0; i < videos.length; i++) {
-      setupVideo(videos[i]);
+    setupVideo(videos[i]);
   }
 }
 
@@ -81,11 +81,11 @@ function setupVideo(video) {
   let id = parseMediaURL(media);
 
   video.addEventListener('click', () => {
-      let iframe = createIframe(id);
+    let iframe = createIframe(id);
 
-      link.remove();
-      button.remove();
-      video.appendChild(iframe);
+    link.remove();
+    button.remove();
+    video.appendChild(iframe);
   });
 
   link.removeAttribute('href');
@@ -141,32 +141,32 @@ function shuffle(array) {
 //END__Random Gallery
 
 //BA-Slider
-const
-  baSlider = document.querySelector('.ba-slider'),
-  baSeparator = document.querySelector('.ba-slider__separator')
+const baSlider = document.querySelector('.ba-slider__owerlay');
+const baSeparator = document.querySelector('.ba-slider__separator');
+const baImgWrap = document.querySelector('.ba-slider__image-wrap');
 
-let
-  baImgWrap = document.querySelector('.ba-slider__image-wrap')
-
-baSlider.addEventListener('mousedown', moveStart, false);
-baSlider.addEventListener('mouseup', moveEnd, false);
-
-let baPosX
+baSlider.addEventListener('mousedown', moveStart);
+document.addEventListener('mouseup', moveEnd);
 
 function moveStart(e) {
-  console.dir(e.target);
   e.preventDefault();
-  baPosX = e.offsetX
-  baImgWrap.style.width = `${baPosX}px`
-  baSeparator.style.left = `${baPosX}px`
-  baSlider.addEventListener('mousemove', moveAction);
+  const baSliderWidth = +e.currentTarget.offsetWidth;
+  const x = e.offsetX;
+  if (x > 20 && x < (baSliderWidth - 20)) {
+    baImgWrap.style.width = `${x}px`;
+    baSeparator.style.left = `${x}px`;
+    baSlider.addEventListener('mousemove', moveAction);
+  }
 }
 
 function moveAction(e) {
   e.preventDefault();
-  baPosX = e.offsetX
-  baImgWrap.style.width = `${baPosX}px`
-  baSeparator.style.left = `${baPosX}px`
+  const baSliderWidth = +e.currentTarget.offsetWidth;
+  const x = e.offsetX;
+  if (x > 20 && x < (baSliderWidth - 20)) {
+    baImgWrap.style.width = `${x}px`;
+    baSeparator.style.left = `${x}px`;
+  }
 }
 
 function moveEnd() {
@@ -213,72 +213,3 @@ bookBtn.addEventListener('click', function (e) {
   setTimeout(() => circle.remove(), 500);
 })
 //END__Ripple Effect
-
-console.log(`
-Моя самоопроверка:
-
-Выполненные пункты:___________________________________________________________________
-
-Вёрстка соответствует макету. Ширина экрана 1024px +40
-  Блок header +4
-  Секция Welcome +4
-  Секция Visiting +4
-  Секция Explore +4
-  Секция Video +4
-  Секция Gallery +4
-  Секция Tickets +4
-  Форма покупки билетов +4
-  Секция Contacts +4
-  Блок footer +4
-
-Вёрстка соответствует макету. Ширина экрана 768px +40
-  Блок header +4
-  Секция Welcome +4
-  Секция Visiting +4
-  Секция Explore +4
-  Секция Video +4
-  Секция Gallery +4
-  Секция Tickets +4
-  Форма покупки билетов +4
-  Секция Contacts +4
-  Блок footer +4
-
-Вёрстка соответствует макету. Ширина экрана 420px +40
-  Блок header +4
-  Секция Welcome +4
-  Секция Visiting +4
-  Секция Explore +4
-  Секция Video +4
-  Секция Gallery +4
-  Секция Tickets +4
-  Форма покупки билетов +4
-  Секция Contacts +4
-  Блок footer +4
-
-Ни на одном из разрешений до 320px включительно не появляется горизонтальная полоса прокрутки +6
-
-Совмещается адаптивная и респонсивная (резиновая) вёрстка +14 При изменении ширины экрана плавно изменяются размеры:
-  слайдера в секции Welcome +2
-  слайдера сравнения изображений в секции Explore +2
-  кастомного видеоплеера в секции Video +2
-  слайдера в секции Video +2
-  YouTube-видео в плейлисте в секции Video, маленькие видео выровнены по краям большого +2
-  галереи изображений и изображений в ней +2
-  карты +2
-
-На ширине экрана 1024рх и меньше реализовано адаптивное меню +12
-  при нажатии на бургер-иконку меню появляется, плавно выдвигаясь слева, бургер-иконка изменяется на крестик. При нажатии на крестик меню исчезает, плавно возвращаясь назад, иконка крестика превращается в бургер-иконку +2
-  ссылки в меню работают, обеспечивая плавную прокрутку по якорям +2
-  при клике по ссылке в адаптивном меню, или при клике по любому месту сайта, кроме самого адаптивного меню, меню закрывается +2
-  вёрстка меню соответствует макету на всех проверяемых разрешениях +6
-
-Не выполненные пункты:_______________________________________________________________
-
-Оптимизация скорости загрузки страницы +8 Оптимизация скорости загрузки страницы определяется при помощи сервиса https://developers.google.com/speed/pagespeed/insights/. Результат проверки скорости сайта для мобильных устройств:
-  0 to 49 (red): Poor - не выполнено, 0 баллов
-  50 to 89 (orange): Needs Improvement - частично выполнено +4
-  90 to 100 (green): Good - выполнено полностью +8
-
-
-Итого, по подсчёту баллов выполненных пунктов: 150 баллов из возможных 150
-`);

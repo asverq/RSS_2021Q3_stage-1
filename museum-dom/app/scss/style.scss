@@ -543,6 +543,15 @@ body {
         margin-top: 12px;
         position: relative;
 
+        &__owerlay {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2000;
+        }
+
         &__image {
             width: 720px;
             display: block;
