@@ -80,6 +80,63 @@ function shuffle(array) {
 }
 //END__Random Gallery
 
+//Animation Gallery
+function debounce(func, wait = 20, immediate = true) {
+  let timeout;
+  return function () {
+    let context = this,
+      args = arguments;
+    let later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    }
+    let callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  }
+}
+
+const galleryItems = document.querySelectorAll('.gallery__item');
+
+if (galleryItems.length > 0) {
+  window.addEventListener('scroll', debounce(checkGalleryItems));
+
+  function checkGalleryItems() {
+    galleryItems.forEach(item => {
+      const itemHeight = item.offsetHeight;
+      const itemOffset = Math.floor(offset(item).top);
+      const animStart = 12;
+
+      let itemAnimPoint = window.innerHeight - itemHeight / animStart;
+      if (itemHeight > window.innerHeight) {
+        itemAnimPoint = window.innerHeight - window.innerHeight / animStart;
+      }
+
+      if ((scrollY > itemOffset - itemAnimPoint) && scrollY < (itemOffset + itemHeight)) {
+        item.classList.add('animate__animated');
+        item.classList.add('animate__zoomIn');
+        item.classList.add('active');
+      } else {
+        item.classList.remove('animate__animated');
+        item.classList.remove('animate__zoomIn');
+        item.classList.remove('active');
+      }
+    })
+  }
+
+  checkGalleryItems();
+}
+
+function offset(el) {
+  const rect = el.getBoundingClientRect();
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return {
+    top: rect.top + scrollTop
+  }
+}
+//END__Animation Gallery
+
 //Popup-form
 const buyNowBtn = document.querySelector('.calculator-btn-sum');
 const popupForm = document.querySelector('.tickets__popup-form');

@@ -1037,7 +1037,11 @@ body {
 
     &__item {
         margin-bottom: 19px;
-        // display: none;
+        opacity: 0;
+    }
+
+    &__item.active {
+        opacity: 1;
     }
 
     &__img {
