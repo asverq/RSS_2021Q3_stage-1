@@ -54,30 +54,39 @@ screenBtn.addEventListener('click', playPauseMedia);
 playBtn.addEventListener('click', playPauseMedia);
 volumeBtn.addEventListener('click', toggleMute);
 fullscreenBtn.addEventListener('click', toggleFullScreen)
+
+
 document.addEventListener('keydown', (e) => {
-  if (e.code === 'Space') {
-    e.preventDefault();
-    playPauseMedia();
-  }
-  if (e.code === 'KeyF') {
-    e.preventDefault();
-    toggleFullScreen();
-  }
-  if (e.code === 'KeyM') {
-    e.preventDefault();
-    toggleMute();
-  }
-  if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
-    e.preventDefault();
-    isShiftDown = true;
-  }
-  if (e.code === 'Period' && isShiftDown === true) {
-    e.preventDefault();
-    speedPlay('up');
-  }
-  if (e.code === 'Comma' && isShiftDown === true) {
-    e.preventDefault();
-    speedPlay('down');
+  const containerHeight = container.offsetHeight;
+  const containerPoint = window.innerHeight - containerHeight / 2;
+  const containerOffset = Math.floor(offset(container).top)
+
+  if (scrollY > containerOffset - containerPoint &&
+    scrollY < (containerOffset + containerHeight / 2)) {
+    if (e.code === 'Space') {
+      e.preventDefault();
+      playPauseMedia();
+    }
+    if (e.code === 'KeyF') {
+      e.preventDefault();
+      toggleFullScreen();
+    }
+    if (e.code === 'KeyM') {
+      e.preventDefault();
+      toggleMute();
+    }
+    if (e.code === 'ShiftLeft' || e.code === 'ShiftRight') {
+      e.preventDefault();
+      isShiftDown = true;
+    }
+    if (e.code === 'Period' && isShiftDown === true) {
+      e.preventDefault();
+      speedPlay('up');
+    }
+    if (e.code === 'Comma' && isShiftDown === true) {
+      e.preventDefault();
+      speedPlay('down');
+    }
   }
 });
 
@@ -87,6 +96,15 @@ document.addEventListener('keyup', (e) => {
     isShiftDown = false;
   }
 })
+
+
+function offsetContainer(el) {
+  const rect = el.getBoundingClientRect();
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  return {
+    top: rect.top + scrollTop
+  }
+}
 
 function setMedia() {
   media.src = `video/video-${activeMedia + 1}.mp4`;
