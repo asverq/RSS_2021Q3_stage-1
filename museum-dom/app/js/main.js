@@ -124,8 +124,8 @@ if (galleryItems.length > 0) {
       }
     })
   }
+  setInterval(checkGalleryItems, 500);
 
-  checkGalleryItems();
 }
 
 function offset(el) {
@@ -176,3 +176,32 @@ bookBtn.addEventListener('click', function (e) {
   setTimeout(() => circle.remove(), 500);
 })
 //END__Ripple Effect
+
+
+
+
+
+
+
+//Calculator
+// const calcBasicInp = document.getElementById('calculator__number-1');
+// const calcSeniorInp = document.getElementById('calculator__number-2');
+// const popCalcBasicInp = document.getElementById('counter-set__number-1');
+// const popCalcSeniorInp = document.getElementById('counter-set__number-2');
+// const btnsCalc = document.querySelectorAll('.calculator-btn');
+// const popBtnsCalc = document.querySelectorAll('.counter-set__btn');
+
+// btnsCalc.forEach(el => {
+//   this.addEventListener('click', setTicketsValue);
+// })
+
+// let calcBasicInpValue = 0;
+// let calcSeniorInpValue = 0;
+
+// function setTicketsValue() {
+//   calcBasicInpValue += calcBasicInp.value;
+//   calcSeniorInpValue += calcSeniorInp.value;
+// }
+
+// console.log(calcBasicInp.value);
+//END___Calculator

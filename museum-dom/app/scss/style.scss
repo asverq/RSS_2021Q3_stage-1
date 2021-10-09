@@ -1956,29 +1956,21 @@ body {
     }
 
     &__map-wrap {
+        height: 0;
+        max-width: 960px;
+        width: 100%;
         margin-top: 22px;
+        position: relative;
+        padding: 0 0 42.95% 0;
     }
 
-    &__image {
-        max-width: 100%;
-
-        &.size_1920 {
-            display: block;
-        }
-
-        &.size_1024 {
-            display: none;
-        }
-
-        &.size_768 {
-            display: none;
-        }
-
-        &.size_420 {
-            display: none;
-        }
+    #map {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
-
 }
 
 //***END  Contacts Section

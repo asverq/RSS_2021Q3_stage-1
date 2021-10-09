@@ -410,26 +410,6 @@
         &__addr-wrap {
             width: 290px;
         }
-
-        &__image {
-            max-width: 100%;
-
-            &.size_1920 {
-                display: none;
-            }
-
-            &.size_1024 {
-                display: block;
-            }
-
-            &.size_768 {
-                display: none;
-            }
-
-            &.size_420 {
-                display: none;
-            }
-        }
     }
 
 
@@ -903,27 +883,9 @@
         flex-wrap: wrap;
     }
 
-    .contacts__image {
-
-        &.size_1920 {
-            display: none;
-        }
-
-        &.size_1024 {
-            display: none;
-        }
-
-        &.size_768 {
-            display: block;
-        }
-
-        &.size_420 {
-            display: none;
-        }
-    }
-
     .contacts__map-wrap {
         margin-top: 30px;
+        padding: 0 0 70.95% 0;
     }
 
     .contacts__addr-head {
@@ -1465,25 +1427,6 @@
     .contacts__item {
         font-size: 16px;
         line-height: 22px;
-    }
-
-    .contacts__image {
-
-        &.size_1920 {
-            display: none;
-        }
-
-        &.size_1024 {
-            display: none;
-        }
-
-        &.size_768 {
-            display: none;
-        }
-
-        &.size_420 {
-            display: block;
-        }
     }
 
     .contacts__map-wrap {
