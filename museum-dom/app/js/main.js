@@ -317,3 +317,17 @@ function setRadio() {
 }
 setRadio();
 //END___Calculator
+
+const inputDate = document.querySelector('.popup-form__input-date');
+const currentDate = new Date().toISOString().slice(0, 10); //2021-10-10 Friday, August 19
+const resultDate = document.querySelector('.result__date');
+inputDate.setAttribute('min', currentDate);
+
+inputDate.addEventListener('input', () => {
+  const weekArr = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  const dayWeek = weekArr[new Date(inputDate.value).getDay()];
+  const month = monthArr[new Date(inputDate.value).getMonth()];
+  const day = new Date(inputDate.value).getDate();
+  resultDate.innerText = `${dayWeek}, ${month} ${day}`;
+})
