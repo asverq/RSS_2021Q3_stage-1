@@ -1079,11 +1079,16 @@ body {
         justify-content: space-between;
     }
 
+    &__slider {
+        width: 720px;
+        height: 550px;
+    }
+
     &__img-wrap {
         width: 720px;
         height: 550px;
         flex-shrink: 0;
-        overflow: hidden;
+        // overflow: hidden;
     }
 
     &__picture {

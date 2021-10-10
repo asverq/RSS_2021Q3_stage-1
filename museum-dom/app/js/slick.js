@@ -22,7 +22,6 @@ $(function () {
     slidesToShow: 3,
     infinite: true,
     dots: true,
-    autoplaySpeed: 7000,
     speed: 600,
     appendArrows: $('.video-slider__dots-wrapper'),
     appendDots: $('.dots-subwrap'),
@@ -32,5 +31,16 @@ $(function () {
         slidesToShow: 2,
       }
     }, ],
+  });
+});
+$(function () {
+  $('.tickets__slider').slick({
+    draggable: false,
+    fade: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    speed: 2000,
+    arrows: false,
   });
 });

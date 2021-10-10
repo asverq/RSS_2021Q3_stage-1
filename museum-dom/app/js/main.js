@@ -106,14 +106,14 @@ if (galleryItems.length > 0) {
     galleryItems.forEach(item => {
       const itemHeight = item.offsetHeight;
       const itemOffset = Math.floor(offset(item).top);
-      const animStart = 12;
+      const animStart = 10;
 
       let itemAnimPoint = window.innerHeight - itemHeight / animStart;
       if (itemHeight > window.innerHeight) {
         itemAnimPoint = window.innerHeight - window.innerHeight / animStart;
       }
 
-      if ((scrollY > itemOffset - itemAnimPoint) && scrollY < (itemOffset + itemHeight)) {
+      if ((scrollY > itemOffset - itemAnimPoint)) { // && scrollY < (itemOffset + itemHeight)
         item.classList.add('animate__animated');
         item.classList.add('animate__zoomIn');
         item.classList.add('active');
@@ -180,12 +180,6 @@ bookBtn.addEventListener('click', function (e) {
   setTimeout(() => circle.remove(), 500);
 })
 //END__Ripple Effect
-
-
-
-
-
-
 
 //Calculator
 const calcBasicInp = document.getElementById('calculator__number-1');
