@@ -508,9 +508,9 @@
               <p class="calculator__head">Ticket Type</p>
               <div class="calculator__radio-wrap">
                 <div>
-                  <input class="calculator__radio visibility-hidden" type="radio" name="radio" id="radio"
-                    value="Permanent exhibition" checked>
-                  <label class="calculator__ticket-type calculator__text" for="radio">Permanent exhibition</label>
+                  <input class="calculator__radio visibility-hidden" type="radio" name="radio" id="radio-1"
+                    value="Permanent exhibition">
+                  <label class="calculator__ticket-type calculator__text" for="radio-1">Permanent exhibition</label>
                 </div>
                 <div>
                   <input class="calculator__radio visibility-hidden" type="radio" name="radio" id="radio-2"
@@ -531,7 +531,7 @@
                 <div class="calculator__num-btn-wrap">
                   <button class="btn calculator-btn" type="button"
                     onclick="this.nextElementSibling.stepDown()">–</button>
-                  <input class="calculator__number" id="calculator__number-1" type="number" min="0" max="20" value="1"
+                  <input class="calculator__number" id="calculator__number-1" type="number" min="0" max="20" value="0"
                     readonly>
                   <button class="btn calculator-btn" type="button"
                     onclick="this.previousElementSibling.stepUp()">+</button>
@@ -543,7 +543,7 @@
                 <div class="calculator__num-btn-wrap">
                   <button class="btn calculator-btn" type="button"
                     onclick="this.nextElementSibling.stepDown()">–</button>
-                  <input class="calculator__number" id="calculator__number-2" type="number" min="0" max="20" value="1"
+                  <input class="calculator__number" id="calculator__number-2" type="number" min="0" max="20" value="0"
                     readonly>
                   <button class="btn calculator-btn" type="button"
                     onclick="this.previousElementSibling.stepUp()">+</button>
@@ -582,16 +582,16 @@
               </div>
               <div class="popup-form__row row-select">
                 <select class="popup-form__select" id="popup-form__select" size="1" name="ticket-type">
-                  <option selected disabled>Ticket Type</option>
-                  <option value="Permanent exhibition">Permanent exhibition</option>
-                  <option class="selected" value="Temporary exhibition">Temporary exhibition</option>
-                  <option value="Combined Admission">Combined Admission</option>
+                  <option class="select__option" selected disabled>Ticket Type</option>
+                  <option class="select__option" value="Permanent exhibition">Permanent exhibition</option>
+                  <option class="select__option selected" value="Temporary exhibition">Temporary exhibition</option>
+                  <option class="select__option" value="Combined Admission">Combined Admission</option>
                 </select>
               </div>
               <fieldset class="popup-form__counter-set">
                 <p class="counter-set__head">Entry ticket</p>
                 <div class="counter-set__row">
-                  <span class="counter-set__text">Basic 18+ (20 €)</span>
+                  <span class="counter-set__text counter-set__text--basic">Basic 18+ (20 €)</span>
                   <div class="counter-set__num-wrap">
                     <button class="btn counter-set__btn" type="button"
                       onclick="this.nextElementSibling.stepDown()">–</button>
@@ -603,7 +603,7 @@
                   </div>
                 </div>
                 <div class="counter-set__row">
-                  <span class="counter-set__text">Senior 65+ (10 €)</span>
+                  <span class="counter-set__text counter-set__text--senior">Senior 65+ (10 €)</span>
                   <div class="counter-set__num-wrap">
                     <button class="btn counter-set__btn" type="button"
                       onclick="this.nextElementSibling.stepDown()">–</button>
@@ -624,13 +624,13 @@
                   <p class="result__date">Friday, August 19</p>
                   <p class="result__time">16 : 30</p>
                   <p class="result__type">Temporary exhibition</p>
-                  <p class="result__type-text"><span class="result__type-count">2</span>Basic (20 €)</p>
-                  <p class="result__type-text"><span class="result__type-count">2</span>Senior (10 €)</p>
+                  <p class="result__type-text result__type-text--basic"><span class="result__type-count">2</span>Basic (20 €)</p>
+                  <p class="result__type-text result__type-text--senior"><span class="result__type-count">2</span>Senior (10 €)</p>
                 </div>
                 <div class="result__right">
                   <img class="result__img" src="img/form-image.webp" loading="lazy" alt="">
-                  <p class="result__type-text">40 €</p>
-                  <p class="result__type-text">20 €</p>
+                  <p class="result__type-text result__type-text--basic-right">40 €</p>
+                  <p class="result__type-text result__type-text--senior-right">20 €</p>
                 </div>
               </div>
               <div class="result__total-wrap">

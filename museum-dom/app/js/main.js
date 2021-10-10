@@ -142,18 +142,22 @@ const buyNowBtn = document.querySelector('.calculator-btn-sum');
 const popupForm = document.querySelector('.tickets__popup-form');
 const popupFormClose = document.querySelector('.popup-form__close-btn');
 const popupOwerlay = document.querySelector('.popup-owerlay');
+let isPopupOpen = false;
 buyNowBtn.addEventListener('click', (e) => {
   e.preventDefault();
+  isPopupOpen = true;
   popupForm.classList.remove('hide');
   popupOwerlay.classList.add('active');
 })
 
 popupFormClose.addEventListener('click', () => {
+  isPopupOpen = false;
   popupForm.classList.add('hide');
   popupOwerlay.classList.remove('active');
 })
 
 popupOwerlay.addEventListener('click', () => {
+  isPopupOpen = false;
   popupForm.classList.add('hide');
   popupOwerlay.classList.remove('active');
 })
@@ -184,24 +188,132 @@ bookBtn.addEventListener('click', function (e) {
 
 
 //Calculator
-// const calcBasicInp = document.getElementById('calculator__number-1');
-// const calcSeniorInp = document.getElementById('calculator__number-2');
-// const popCalcBasicInp = document.getElementById('counter-set__number-1');
-// const popCalcSeniorInp = document.getElementById('counter-set__number-2');
-// const btnsCalc = document.querySelectorAll('.calculator-btn');
-// const popBtnsCalc = document.querySelectorAll('.counter-set__btn');
+const calcBasicInp = document.getElementById('calculator__number-1');
+const calcSeniorInp = document.getElementById('calculator__number-2');
+const popCalcBasicInp = document.getElementById('counter-set__number-1');
+const popCalcSeniorInp = document.getElementById('counter-set__number-2');
+const btnsCalc = document.querySelectorAll('.calculator-btn');
+const popBtnsCalc = document.querySelectorAll('.counter-set__btn');
+const labelsRadio = document.querySelectorAll('.calculator__ticket-type');
+const calcRadio = document.querySelectorAll('.calculator__radio');
+const calcTotalText = document.querySelector('.calculator__sum');
+const selectPopup = document.querySelector('.popup-form__select');
+const selectOption = document.querySelectorAll('.select__option');
 
-// btnsCalc.forEach(el => {
-//   this.addEventListener('click', setTicketsValue);
-// })
+let checkedRadio = 'permanent exhibition';
+let calcMultiple = Number(localStorage.getItem('calcMultiple')) || 20;
 
-// let calcBasicInpValue = 0;
-// let calcSeniorInpValue = 0;
+labelsRadio.forEach(e => {
+  e.addEventListener('click', (e) => {
+    selectOption.forEach(e => e.removeAttribute('selected'));
+    checkedRadio = e.target.previousElementSibling.value;
+    if (checkedRadio.toLocaleLowerCase() === 'permanent exhibition') {
+      toStorage(20, 'Permanent exhibition');
+      selectOption[1].setAttribute('selected', 'selected')
+    }
+    if (checkedRadio.toLocaleLowerCase() === 'temporary exhibition') {
+      toStorage(25, 'Temporary exhibition');
+      selectOption[2].setAttribute('selected', 'selected')
+    }
+    if (checkedRadio.toLocaleLowerCase() === 'combined admission') {
+      toStorage(40, 'Combined Admission');
+      selectOption[3].setAttribute('selected', 'selected')
+    }
+    setTotalValue();
+    document.querySelector('.result__type').innerText = `${checkedRadio}`
+  });
+})
 
-// function setTicketsValue() {
-//   calcBasicInpValue += calcBasicInp.value;
-//   calcSeniorInpValue += calcSeniorInp.value;
-// }
+selectPopup.addEventListener('input', (e) => {
+  calcRadio.forEach(e => e.removeAttribute('checked'));
+  if (selectPopup.value.toLocaleLowerCase() === 'permanent exhibition') {
+    toStorage(20, 'Permanent exhibition')
+    calcRadio[0].setAttribute('checked', 'checked');
+    checkedRadio = 'Permanent exhibition';
+  }
+  if (selectPopup.value.toLocaleLowerCase() === 'temporary exhibition') {
+    calcRadio[1].setAttribute('checked', 'checked');
+    toStorage(25, 'Temporary exhibition')
+    checkedRadio = 'Temporary exhibition';
+  }
+  if (selectPopup.value.toLocaleLowerCase() === 'combined admission') {
+    calcRadio[2].setAttribute('checked', 'checked');
+    toStorage(40, 'Combined Admission')
+    checkedRadio = 'Combined Admission';
+  }
+  setTotalValue();
+  document.querySelector('.result__type').innerText = `${checkedRadio}`
+});
 
-// console.log(calcBasicInp.value);
+function toStorage(num, str) {
+  localStorage.setItem('calcMultiple', num);
+  localStorage.setItem('checkedRadio', str);
+  calcMultiple = num;
+}
+
+btnsCalc.forEach(e => {
+  e.addEventListener('click', () => {
+    localStorage.setItem('valueCalcBasicInp', calcBasicInp.value);
+    localStorage.setItem('valueCalcSeniorInp', calcSeniorInp.value);
+    popCalcBasicInp.value = calcBasicInp.value;
+    popCalcSeniorInp.value = calcSeniorInp.value;
+    setTotalValue()
+  })
+})
+popBtnsCalc.forEach(e => {
+  e.addEventListener('click', () => {
+    localStorage.setItem('valueCalcBasicInp', popCalcBasicInp.value);
+    localStorage.setItem('valueCalcSeniorInp', popCalcSeniorInp.value);
+    calcBasicInp.value = popCalcBasicInp.value;
+    calcSeniorInp.value = popCalcSeniorInp.value;
+    setTotalValue()
+  })
+})
+
+function setTotalValue() {
+  let sum = calcBasicInp.value * calcMultiple + (calcSeniorInp.value / 2) * calcMultiple
+  calcTotalText.innerText = `${sum}`
+  document.querySelector('.result__total-sum').innerText = `${sum}€`
+  document.querySelector('.counter-set__text--basic')
+    .innerText = `Basic 18+ (${calcMultiple} €)`
+  document.querySelector('.result__type-text--basic')
+    .innerHTML = `<span class="result__type-count">${popCalcBasicInp.value}</span>Basic (${calcMultiple} €)`
+  document.querySelector('.result__type-text--basic-right')
+    .innerHTML = `${popCalcBasicInp.value * calcMultiple} €`
+  document.querySelector('.counter-set__text--senior')
+    .innerText = `Senior 65+ (${calcMultiple / 2} €)`
+  document.querySelector('.result__type-text--senior')
+    .innerHTML = `<span class="result__type-count">${popCalcSeniorInp.value}</span>Senior (${calcMultiple / 2} €)`
+  document.querySelector('.result__type-text--senior-right')
+    .innerHTML = `${popCalcSeniorInp.value * (calcMultiple / 2)} €`
+}
+
+function setCalcInputValue() {
+  calcBasicInp.value = Number(localStorage.getItem('valueCalcBasicInp'))
+  calcSeniorInp.value = Number(localStorage.getItem('valueCalcSeniorInp'))
+  popCalcBasicInp.value = Number(localStorage.getItem('valueCalcBasicInp'))
+  popCalcSeniorInp.value = Number(localStorage.getItem('valueCalcSeniorInp'))
+  setTotalValue();
+}
+setCalcInputValue();
+
+
+function setRadio() {
+  calcRadio.forEach(e => e.removeAttribute('checked'));
+  selectOption.forEach(e => e.removeAttribute('selected'));
+  if (calcMultiple === 20) {
+    calcRadio[0].setAttribute('checked', 'checked');
+    selectOption[1].setAttribute('selected', 'selected');
+  }
+  if (calcMultiple === 25) {
+    calcRadio[1].setAttribute('checked', 'checked');
+    selectOption[2].setAttribute('selected', 'selected');
+  }
+  if (calcMultiple === 40) {
+    calcRadio[2].setAttribute('checked', 'checked');
+    selectOption[3].setAttribute('selected', 'selected');
+  }
+  document.querySelector('.result__type').innerText = `${localStorage.getItem('checkedRadio')}`
+}
+setRadio();
 //END___Calculator
