@@ -1204,6 +1204,7 @@ body {
             &::-webkit-calendar-picker-indicator {
                 background-image: url('../img/form-icons/arrow-down.svg');
                 background-size: 81%;
+                background-position-y: 50%;
             }
         }
 
@@ -1234,40 +1235,48 @@ body {
             height: 45px;
             width: 190px;
             padding: 0 7px 0 45px;
-            color: #ffffff;
             position: relative;
+            appearance: none;
             background-image: url('../img/form-icons/clock.svg');
             background-repeat: no-repeat;
             background-position: 9% 50%;
+            border: 1px solid #000;
+            outline: none;
+            font-family: $font-Roboto;
+            font-size: 19px;
 
-            &::-webkit-calendar-picker-indicator {
-                background-image: url('../img/form-icons/arrow-down.svg');
-                background-size: 89%;
+            &:focus {
+                box-shadow: 0 0 5px 2px $color-gold;
             }
+
+            // &::-webkit-calendar-picker-indicator {
+            //     background-image: url('../img/form-icons/arrow-down.svg');
+            //     background-size: 89%;
+            // }
         }
 
-        &__input-time::before {
-            color: $color-dark-bg;
-            position: absolute;
-            display: block;
-            content: attr(data-value);
-        }
+        // &__input-time::before {
+        //     color: $color-dark-bg;
+        //     position: absolute;
+        //     display: block;
+        //     content: attr(data-value);
+        // }
 
         &__input-time:focus {
             color: $color-dark-bg;
         }
 
-        &__input-time:valid {
-            color: $color-dark-bg;
-        }
+        // &__input-time:valid {
+        //     color: $color-dark-bg;
+        // }
 
-        &__input-time:focus::before {
-            content: "" !important;
-        }
+        // &__input-time:focus::before {
+        //     content: "" !important;
+        // }
 
-        &__input-time:valid::before {
-            content: "" !important;
-        }
+        // &__input-time:valid::before {
+        //     content: "" !important;
+        // }
 
         &__input-name {
             background-image: url('../img/form-icons/user.svg');
@@ -1305,7 +1314,7 @@ body {
             background-position: 4% 50%;
 
             &:focus {
-                box-shadow: 0 0 5px 2px $color-dark-red;
+                box-shadow: 0 0 5px 2px $color-gold;
             }
 
             .selected {
@@ -1423,11 +1432,23 @@ body {
     outline: none;
 
     &:focus {
-        box-shadow: 0 0 5px 2px $color-dark-red;
+        box-shadow: 0 0 5px 2px $color-gold;
     }
 
     &::placeholder {
         color: $color-dark-bg;
+    }
+}
+
+.popup-form__row {
+    position: relative;
+    span {
+        position: absolute;
+        left: 0;
+        top: -15px;
+        font-family: $font-Roboto;
+        font-size: 11px;
+        color: $color-dark-red;
     }
 }
 

@@ -331,3 +331,47 @@ inputDate.addEventListener('input', () => {
   const day = new Date(inputDate.value).getDate();
   resultDate.innerText = `${dayWeek}, ${month} ${day}`;
 })
+
+const inputTime = document.querySelector('.popup-form__input-time');
+inputTime.addEventListener('input', () => {
+  document.querySelector('.result__time').innerText = inputTime.value
+})
+
+//Validate
+const regName = /^([A-Za-z][A-Za-z]{2,14}$)|^([а-яА-ЯёЁ][а-яА-ЯёЁ]{2,14}$)/
+const inputName = document.querySelector('.popup-form__input-name');
+inputName.addEventListener('input', (e) => {
+  e.preventDefault();
+  const notValid = document.createElement('span');
+  if (!regName.test(inputName.value)) {
+    inputName.style.boxShadow = "0 0 5px 2px #710707"
+    if (!document.querySelector('.popup-form__input-name+span')) {
+      inputName.parentElement.appendChild(notValid);
+      notValid.innerText = `Enter correct name`;
+    }
+  } else {
+    inputName.style.boxShadow = "0 0 5px 2px #097107"
+    if (document.querySelector('.popup-form__input-name+span')) {
+      inputName.parentElement.removeChild(document.querySelector('.popup-form__input-name+span'));
+    }
+  }
+})
+
+const regMail = /^([-0-9_A-z]{3,15}@[A-z]{4,15}.[A-z]{2,})$/;
+const inputMail = document.querySelector('.popup-form__input-email');
+inputMail.addEventListener('input', (e) => {
+  e.preventDefault();
+  const notValid = document.createElement('span');
+  if (!regMail.test(inputMail.value)) {
+    inputMail.style.boxShadow = "0 0 5px 2px #710707"
+    if (!document.querySelector('.popup-form__input-email+span')) {
+      inputMail.parentElement.appendChild(notValid);
+      notValid.innerText = `Enter correct email address`;
+    }
+  } else {
+    inputMail.style.boxShadow = "0 0 5px 2px #097107"
+    if (document.querySelector('.popup-form__input-email+span')) {
+      inputMail.parentElement.removeChild(document.querySelector('.popup-form__input-email+span'));
+    }
+  }
+})
