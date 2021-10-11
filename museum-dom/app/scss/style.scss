@@ -921,7 +921,6 @@ body {
     }
 
     /* Enabled */
-
     .video--enabled {
         cursor: pointer;
     }
@@ -1080,8 +1079,8 @@ body {
     }
 
     &__slider {
-        width: 720px;
-        height: 550px;
+        width: 54%;
+        height: 100%;
     }
 
     &__img-wrap {
@@ -1095,6 +1094,7 @@ body {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        object-position: top;
     }
 
     .popup-form__close-btn {

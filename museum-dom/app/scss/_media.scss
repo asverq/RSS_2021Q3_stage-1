@@ -997,6 +997,10 @@
         height: 262px;
     }
 
+    .tickets__slider {
+        width: 56%;
+    }
+
     .footer__socials-link {
         margin-left: 0;
     }
@@ -1032,6 +1036,10 @@
     .tickets__sub-wrap {
         flex-direction: column;
         align-items: center;
+    }
+
+    .tickets__slider {
+        width: 80%;
     }
 
     .calculator {

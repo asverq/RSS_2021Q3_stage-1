@@ -33,14 +33,14 @@ $(function () {
     }, ],
   });
 });
+
 $(function () {
   $('.tickets__slider').slick({
-    draggable: false,
     fade: true,
     infinite: true,
     autoplay: true,
     autoplaySpeed: 3000,
-    speed: 2000,
+    speed: 1000,
     arrows: false,
   });
 });
