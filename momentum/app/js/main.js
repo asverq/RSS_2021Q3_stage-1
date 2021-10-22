@@ -94,9 +94,11 @@ userName.addEventListener('input', () => {
   localStorage.setItem('userName', userName.value)
 })
 
-if (localStorage.getItem('userName')) {
-  userName.value = localStorage.getItem('userName');
-}
+let userNameText;
+if (loc === 'EN') userNameText = 'enter your name'
+if (loc === 'RU') userNameText = 'введите имя'
+userName.value = localStorage.getItem('userName') || userNameText;
+
 
 sliderBtns.addEventListener('click', debounce(changeSlide, 700));
 
@@ -115,7 +117,6 @@ function changeSlide(e) {
     } else {
       rndNumber -= 1;
     }
-    console.log(rndNumber);
     setBg();
   }
   if (e.target === document.querySelector('.slide-next')) {
@@ -124,7 +125,6 @@ function changeSlide(e) {
     } else {
       rndNumber += 1;
     }
-    console.log(rndNumber);
     setBg();
   }
 }
@@ -159,16 +159,21 @@ async function getWeather() {
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${loc}&appid=4f3d4c8677eb4347b67403f7237cf8f2&units=metric`;
   const res = await fetch(url);
   const data = await res.json();
+  const error = document.querySelector('.weather-error');
   let windText;
   let humText;
+  let errorText;
   if (loc === 'EN') {
     windText = 'Wind:';
-    humText = 'Humidity:'
+    humText = 'Humidity:';
+    errorText = 'city not found';
   }
   if (loc === 'RU') {
     windText = 'Ветер:';
-    humText = 'Влажность:'
+    humText = 'Влажность:';
+    errorText = 'город не найден'
   }
+  data.cod === '404' ? error.textContent = errorText : error.textContent = '';
 
   weatherIcon.classList.add(`owf-${data.weather[0].id}`);
   temperature.textContent = `${Math.floor(data.main.temp)}°C`;
@@ -177,12 +182,3 @@ async function getWeather() {
   wind.textContent = `${windText} ${data.wind.speed} m/s`;
 }
 getWeather();
-
-// async function getWeather() {
-//   const url = `https://api.openweathermap.org/data/2.5/weather?q=Минск&lang=ru&appid=4f3d4c8677eb4347b67403f7237cf8f2&units=metric`;
-//   const res = await fetch(url);
-//   const data = await res.json();
-//   // console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
-//   console.log(data);
-// }
-// getWeather();
