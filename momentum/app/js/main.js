@@ -5,12 +5,11 @@ const greeting = document.querySelector('.greeting');
 const userName = document.querySelector('.name');
 const sliderBtns = document.querySelector('.slider-icons');
 
-let loc = 'EN';
+let loc = 'RU';
 let rndNumber;
 
 function randomNum() {
   rndNumber = Math.floor(Math.random() * 20) + 1;
-  console.log(rndNumber);
 }
 randomNum();
 
@@ -141,3 +140,49 @@ function setBg() {
 }
 setBg();
 
+
+const city = document.querySelector('.city');
+city.value = localStorage.getItem('cityName') || 'Minsk';
+city.addEventListener('input', () => {
+  localStorage.setItem('cityName', city.value);
+})
+city.addEventListener('change', () => {
+  getWeather();
+})
+
+async function getWeather() {
+  const wind = document.querySelector('.wind');
+  const humidity = document.querySelector('.humidity');
+  const weatherIcon = document.querySelector('.weather-icon');
+  const temperature = document.querySelector('.temperature');
+  const weatherDescription = document.querySelector('.weather-description');
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&lang=${loc}&appid=4f3d4c8677eb4347b67403f7237cf8f2&units=metric`;
+  const res = await fetch(url);
+  const data = await res.json();
+  let windText;
+  let humText;
+  if (loc === 'EN') {
+    windText = 'Wind:';
+    humText = 'Humidity:'
+  }
+  if (loc === 'RU') {
+    windText = 'Ветер:';
+    humText = 'Влажность:'
+  }
+
+  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+  temperature.textContent = `${Math.floor(data.main.temp)}°C`;
+  weatherDescription.textContent = data.weather[0].description;
+  humidity.textContent = `${humText} ${data.main.humidity}%`;
+  wind.textContent = `${windText} ${data.wind.speed} m/s`;
+}
+getWeather();
+
+// async function getWeather() {
+//   const url = `https://api.openweathermap.org/data/2.5/weather?q=Минск&lang=ru&appid=4f3d4c8677eb4347b67403f7237cf8f2&units=metric`;
+//   const res = await fetch(url);
+//   const data = await res.json();
+//   // console.log(data.weather[0].id, data.weather[0].description, data.main.temp);
+//   console.log(data);
+// }
+// getWeather();
