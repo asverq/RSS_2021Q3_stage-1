@@ -201,3 +201,104 @@ async function getQuotes() {
   author.textContent = `"${data[rndNum].text}"`;
 }
 getQuotes();
+
+
+const audio = new Audio();
+const wrapBtn = document.querySelector('.player-controls');
+const prevBtn = document.querySelector('.play-prev');
+const nextBtn = document.querySelector('.play-next');
+const playBtn = document.querySelector('.play');
+const playListContainer = document.querySelector('.play-list');
+
+let currMedia = 0;
+
+wrapBtn.addEventListener('click', actionMedia);
+
+
+
+const playListArr = [
+  {
+    title: 'Aqua Caelestis',
+    src: '../sounds/Aqua Caelestis.mp3'
+  },
+  {
+    title: 'Ennio Morricone',
+    src: '../sounds/Ennio Morricone.mp3'
+  },
+  {
+    title: 'River Flows In You',
+    src: '../sounds/River Flows In You.mp3'
+  },
+  {
+    title: 'Summer Wind',
+    src: '../sounds/Summer Wind.mp3'
+  }
+]
+
+playListArr.forEach((el, index) => {
+  const li = document.createElement('li');
+  li.setAttribute('class', 'play-item');
+  li.textContent = `${playListArr[index].title}`;
+  playListContainer.append(li);
+})
+
+const playItems = document.querySelectorAll('.play-item');
+playItems[currMedia].classList.add('item-active')
+
+let isPlaying = false;
+
+function actionMedia(e) {
+  if (e.target === playBtn) {
+    playPauseMedia();
+  }
+
+  if (e.target === nextBtn) {
+    if (currMedia < playListArr.length - 1) {
+      playItems[currMedia].classList.remove('item-active')
+      currMedia += 1;
+      playItems[currMedia].classList.add('item-active')
+    } else {
+      playItems[currMedia].classList.remove('item-active')
+      currMedia = 0;
+      playItems[currMedia].classList.add('item-active')
+    }
+    if (isPlaying) {
+      audio.src = `${playListArr[currMedia].src}`;
+      audio.play();
+    } else {
+      audio.src = `${playListArr[currMedia].src}`;
+    }
+  }
+
+  if (e.target === prevBtn) {
+    if (currMedia > 0) {
+      playItems[currMedia].classList.remove('item-active')
+      currMedia -= 1;
+      playItems[currMedia].classList.add('item-active')
+    } else {
+      playItems[currMedia].classList.remove('item-active')
+      currMedia = playListArr.length - 1;
+      playItems[currMedia].classList.add('item-active')
+    }
+    if (isPlaying) {
+      audio.src = `${playListArr[currMedia].src}`;
+      audio.play();
+    } else {
+      audio.src = `${playListArr[currMedia].src}`;
+    }
+  }
+}
+
+function playPauseMedia() {
+  audio.src = `${playListArr[currMedia].src}`
+  if (!isPlaying) {
+    audio.play();
+    isPlaying = true;
+    playBtn.classList.add('pause');
+  } else {
+    audio.pause();
+    isPlaying = false;
+    playBtn.classList.remove('pause');
+  }
+}
+
