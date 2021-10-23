@@ -5,13 +5,12 @@ const greeting = document.querySelector('.greeting');
 const userName = document.querySelector('.name');
 const sliderBtns = document.querySelector('.slider-icons');
 
-let loc = 'RU';
-let rndNumber;
+let loc = 'EN';
+let rndNumber = randomNum();
 
-function randomNum() {
-  rndNumber = Math.floor(Math.random() * 20) + 1;
+function randomNum(num = 20) {
+  return Math.floor(Math.random() * num) + 1;
 }
-randomNum();
 
 const locFormat = {
   'EN': 'en-EN',
@@ -83,7 +82,7 @@ function setGreeting() {
 }
 
 function showTime() {
-  time.textContent = new Date().toLocaleTimeString(locFormat[loc]);
+  time.textContent = new Date().toLocaleTimeString(); //locFormat[loc] - add this to enable local time format
   setDate();
   setGreeting();
   setTimeout(showTime, 1000);
@@ -142,7 +141,7 @@ setBg();
 
 
 const city = document.querySelector('.city');
-city.value = localStorage.getItem('cityName') || 'Minsk';
+city.value = localStorage.getItem('cityName') || 'Kyiv';
 city.addEventListener('input', () => {
   localStorage.setItem('cityName', city.value);
 })
@@ -174,11 +173,31 @@ async function getWeather() {
     errorText = 'город не найден'
   }
   data.cod === '404' ? error.textContent = errorText : error.textContent = '';
-
-  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+  error.style.color = '#790900';
+  weatherIcon.setAttribute('class', `weather-icon owf owf-${data.weather[0].id}`);
   temperature.textContent = `${Math.floor(data.main.temp)}°C`;
   weatherDescription.textContent = data.weather[0].description;
   humidity.textContent = `${humText} ${data.main.humidity}%`;
-  wind.textContent = `${windText} ${data.wind.speed} m/s`;
+  wind.textContent = `${windText} ${Math.floor(data.wind.speed)} m/s`;
 }
 getWeather();
+
+
+const quote = document.querySelector('.quote');
+const author = document.querySelector('.author');
+const changeQuote = document.querySelector('.change-quote');
+let rotateDeg = 0;
+
+changeQuote.addEventListener('click', getQuotes);
+
+async function getQuotes() {
+  rotateDeg += 180;
+  changeQuote.style.transform = `rotate(${rotateDeg}deg)`;
+  const quotes = `data${loc}.json`;
+  const res = await fetch(quotes);
+  const data = await res.json();
+  const rndNum = randomNum() - 1;
+  quote.textContent = data[rndNum].author;
+  author.textContent = `"${data[rndNum].text}"`;
+}
+getQuotes();
