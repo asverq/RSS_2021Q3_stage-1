@@ -253,17 +253,7 @@ function actionMedia(e) {
   }
 
   if (e.target === nextBtn) {
-    if (currMedia < playListArr.length - 1) {
-      currMedia += 1;
-    } else {
-      currMedia = 0;
-    }
-    if (isPlaying) {
-      audio.src = `${playListArr[currMedia].src}`;
-      audio.play();
-    } else {
-      audio.src = `${playListArr[currMedia].src}`;
-    }
+    nextAudio();
   }
 
   if (e.target === prevBtn) {
@@ -284,6 +274,30 @@ function actionMedia(e) {
   setPlayListIcons()
 
   currentMediaName.textContent = `${playListArr[currMedia].title}`;
+}
+
+function nextAudio() {
+  if (currMedia < playListArr.length - 1) {
+    currMedia += 1;
+  } else {
+    currMedia = 0;
+  }
+  if (isPlaying) {
+    audio.src = `${playListArr[currMedia].src}`;
+    audio.play();
+  } else {
+    audio.src = `${playListArr[currMedia].src}`;
+  }
+}
+
+audio.addEventListener('ended', autoNextAudio);
+
+function autoNextAudio() {
+  if (isPlaying) {
+    nextAudio();
+    resetPlayListIcons();
+    setPlayListIcons();
+  }
 }
 
 function resetPlayListIcons() {
