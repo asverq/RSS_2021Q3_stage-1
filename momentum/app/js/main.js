@@ -390,7 +390,24 @@ function updateProgressBar(e) {
     currentTime
   } = e.target;
   progressBarAudio.style.width = `${currentTime / duration * 100}%`
+  const cTime = Math.floor(currentTime / 60 * 100);
+  const dTime = Math.floor(duration / 60 * 100);
+  let minute = Math.floor(dTime / 60);
+  let cMinute = Math.floor(cTime / 60);
+  minute < 10 ? minute = `0${minute}` : minute = minute;
+  cMinute < 10 ? cMinute = `0${cMinute}` : cMinute = cMinute;
+  let sec = dTime % 60;
+  let cSec = cTime % 60;
+  sec < 10 ? sec = `0${sec}` : sec = sec;
+  cSec < 10 ? cSec = `0${cSec}` : cSec = cSec;
+  const audioDuration = document.querySelector('.player-audio-duration');
+  if (!isNaN(duration)) {
+    audioDuration.textContent = `${cMinute}:${cSec} / ${minute}:${sec}`;
+  } else if (isNaN(duration)) {
+    audioDuration.textContent = `00:00 / 00:00`;
+  }
 }
+
 audio.addEventListener('timeupdate', updateProgressBar);
 
 const volumeAudio = document.querySelector('.player-volume');

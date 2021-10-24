@@ -155,6 +155,7 @@ body {
 
 .player-panel {
     padding: 10px;
+    position: relative;
     background-color: rgba(#fff, 0.1);
     border-radius: 10px;
 }
@@ -191,6 +192,13 @@ body {
     height: 7px;
     width: 0%;
     background-color: rgba(#fff, 0.5);
+}
+
+.player-audio-duration {
+    position: absolute;
+    bottom: 20%;
+    right: 15%;
+    font-size: 12px;
 }
 
 .weather {
