@@ -307,7 +307,7 @@ function resetPlayListIcons() {
   playItems.forEach(item => {
     item.classList.remove('item-active');
     item.style.background = 'url("../svg/play.svg") left center no-repeat';
-    item.style.backgroundSize = '7%';
+    item.style.backgroundSize = '20px';
   })
 }
 
@@ -315,12 +315,11 @@ function setPlayListIcons() {
   playItems[currMedia].classList.add('item-active');
   if (isPlaying) {
     playItems[currMedia].style.background = 'url("../svg/pause.svg") left center no-repeat';
-    playItems[currMedia].style.backgroundSize = '7%';
+    playItems[currMedia].style.backgroundSize = '20px';
   }
 }
 
 function playPauseMedia() {
-  // audio.src = `${playListArr[currMedia].src}`;
   if (!isPlaying) {
     audio.play();
     isPlaying = true;
@@ -346,7 +345,7 @@ playListItems.forEach((item, index) => {
         isPlaying = true;
         playBtn.classList.add('pause');
         item.style.background = 'url("../svg/pause.svg") left center no-repeat';
-        item.style.backgroundSize = '7%';
+        item.style.backgroundSize = '20px';
       }, 0);
     }
     resetPlayListIcons();
@@ -356,13 +355,13 @@ playListItems.forEach((item, index) => {
       playBtn.classList.remove('pause');
       isPlaying = false;
       item.style.background = 'url("../svg/play.svg") left center no-repeat';
-      item.style.backgroundSize = '7%';
+      item.style.backgroundSize = '20px';
     } else {
       audio.play();
       isPlaying = true;
       playBtn.classList.add('pause');
       item.style.background = 'url("../svg/pause.svg") left center no-repeat';
-      item.style.backgroundSize = '7%';
+      item.style.backgroundSize = '20px';
     }
     currentMediaName.textContent = `${playListArr[currMedia].title}`;
   }

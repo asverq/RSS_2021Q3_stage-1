@@ -49,6 +49,8 @@ body {
 }
 
 .play-item {
+    // max-width: 200px;
+    width: fit-content;
     position: relative;
     padding: 5px;
     margin-left: 15px;
@@ -58,7 +60,7 @@ body {
     cursor: pointer;
     transition: .3s;
     background: url("../svg/play.svg") left center no-repeat;
-    background-size: 7%;
+    background-size: 20px;
 }
 
 .play-item:hover {

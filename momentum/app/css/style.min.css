@@ -1037,6 +1037,9 @@ body {
 }
 
 .play-item {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   position: relative;
   padding: 5px;
   margin-left: 15px;
@@ -1048,7 +1051,7 @@ body {
   -o-transition: .3s;
   transition: .3s;
   background: url("../svg/play.svg") left center no-repeat;
-  background-size: 7%;
+  background-size: 20px;
 }
 
 .play-item:hover {
