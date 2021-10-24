@@ -989,6 +989,7 @@ template {
 }
 
 body {
+  position: relative;
   min-width: 480px;
   min-height: 100vh;
   font-family: 'Arial', sans-serif;
@@ -1015,6 +1016,19 @@ body {
   width: 100%;
   min-height: 220px;
   padding: 20px;
+}
+
+.player {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.player.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .player-controls {
@@ -1208,6 +1222,7 @@ body {
   bottom: 20%;
   right: 15%;
   font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .weather {
@@ -1337,11 +1352,22 @@ body {
 }
 
 .time {
-  min-height: 124px;
+  height: 0px;
   margin-bottom: 10px;
   font-family: 'Arial-MT';
   font-size: 100px;
   letter-spacing: -4px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.time.active {
+  height: 124px;
+  opacity: 1;
+  visibility: visible;
 }
 
 .date {
@@ -1415,6 +1441,7 @@ body {
 }
 
 .footer {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1443,6 +1470,56 @@ body {
 
 .author {
   min-height: 20px;
+}
+
+.settings-wrap {
+  width: 200px;
+  height: 300px;
+  padding: 5px;
+  position: absolute;
+  left: 30px;
+  -webkit-transform: translateX(-200%);
+      -ms-transform: translateX(-200%);
+          transform: translateX(-200%);
+  bottom: 30px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 100;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.settings-wrap.active {
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+.settings-btn {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  background: url("../svg/settings.svg");
+  border: none;
+  opacity: 0.5;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+}
+
+.overlay.active {
+  display: block;
 }
 
 @media (max-width: 768px) {

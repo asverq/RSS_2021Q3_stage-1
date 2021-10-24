@@ -5,7 +5,7 @@ const greeting = document.querySelector('.greeting');
 const userName = document.querySelector('.name');
 const sliderBtns = document.querySelector('.slider-icons');
 
-let loc = 'EN';
+let loc = localStorage.getItem('locState') || 'EN';
 let rndNumber = randomNum();
 
 function randomNum(num = 20) {
@@ -48,6 +48,10 @@ const locFormat = {
       'Добрый вечер',
       'Доброй ночи'
     ]
+  },
+  'namePlaceholder': {
+    'EN': 'enter your name',
+    'RU': 'введите ваше имя'
   }
 }
 
@@ -70,7 +74,12 @@ function debounce(func, wait = 20, immediate = true) {
 function setDate() {
   let currentMonth = locFormat.month[loc][new Date().getMonth()];
   let currentWeekDay = locFormat.day[loc][new Date().getDay()];
-  date.textContent = `${currentWeekDay}, ${currentMonth} ${new Date().getDate()}`;
+  if (loc === 'EN') {
+    date.textContent = `${currentWeekDay}, ${currentMonth} ${new Date().getDate()}`;
+  }
+  if (loc === 'RU') {
+    date.textContent = `${currentMonth}: ${new Date().getDate()} - ${currentWeekDay}`;
+  }
 }
 
 function setGreeting() {
@@ -93,10 +102,10 @@ userName.addEventListener('input', () => {
   localStorage.setItem('userName', userName.value)
 })
 
-let userNameText;
-if (loc === 'EN') userNameText = 'enter your name'
-if (loc === 'RU') userNameText = 'введите имя'
-userName.value = localStorage.getItem('userName') || userNameText;
+function setUsername() {
+  userName.value = localStorage.getItem('userName') || locFormat.namePlaceholder[loc];
+}
+setUsername();
 
 
 sliderBtns.addEventListener('click', debounce(changeSlide, 700));
@@ -141,7 +150,14 @@ setBg();
 
 
 const city = document.querySelector('.city');
-city.value = localStorage.getItem('cityName') || 'Kyiv';
+
+
+function setCityLang() {
+  let cityLoc;
+  loc === 'EN' ? cityLoc = 'Minsk' : cityLoc = 'Минск';
+  city.value = localStorage.getItem('cityName') || cityLoc;
+}
+setCityLang();
 city.addEventListener('input', () => {
   localStorage.setItem('cityName', city.value);
 })
@@ -180,7 +196,7 @@ async function getWeather() {
   humidity.textContent = `${humText} ${data.main.humidity}%`;
   wind.textContent = `${windText} ${Math.floor(data.wind.speed)} m/s`;
 }
-getWeather();
+// getWeather();
 
 
 const quote = document.querySelector('.quote');
@@ -439,7 +455,6 @@ const volumeBtn = document.querySelector('.player-volume-btn');
 
 volumeBtn.addEventListener('click', toggleVolume);
 
-
 function toggleVolume() {
   volumeBtn.classList.toggle('mute')
   if (volumeBtn.classList.contains('mute')) {
@@ -449,4 +464,85 @@ function toggleVolume() {
     audio.volume = currVolume;
     volumeProgressAudio.style.width = `${currProgressVolume}%`;
   }
+}
+
+
+//Settings
+
+const settingWrap = document.querySelector('.settings-wrap');
+const settingBtn = document.querySelector('.settings-btn');
+const overlay = document.querySelector('.overlay');
+
+settingBtn.addEventListener('click', () => {
+  settingWrap.classList.add('active');
+  overlay.classList.add('active');
+})
+
+overlay.addEventListener('click', () => {
+  settingWrap.classList.remove('active');
+  overlay.classList.remove('active');
+})
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    settingWrap.classList.toggle('active');
+    overlay.classList.toggle('active');
+  }
+})
+
+const setEn = document.querySelector('#set-english');
+setEn.addEventListener('change', (e) => {
+  loc = 'EN';
+  localStorage.setItem('locState', 'EN');
+  render();
+})
+const setRu = document.querySelector('#set-russian');
+setRu.addEventListener('change', (e) => {
+  loc = 'RU';
+  localStorage.setItem('locState', 'RU');
+  render();
+})
+
+if (loc === 'EN') {
+  setEn.setAttribute('checked', 'checked');
+} else {
+  setRu.setAttribute('checked', 'checked');
+}
+
+renderObject('player');
+renderObject('time');
+
+function renderObject(obj) {
+  const object = document.querySelector(`.${obj}`);
+  const checkObjState = document.querySelector(`#set-${obj}`);
+  let objState = localStorage.getItem(`${obj}State`) || 'show';
+
+  if (objState === 'show') {
+    object.classList.add('active');
+  } else {
+    checkObjState.removeAttribute('checked');
+  }
+
+  checkObjState.addEventListener('change', renderObj);
+
+  function renderObj() {
+    if (objState === 'show') {
+      checkObjState.removeAttribute('checked');
+      object.classList.remove('active');
+      localStorage.setItem(`${obj}State`, 'hide');
+      objState = 'hide';
+    } else {
+      checkObjState.setAttribute('checked', 'checked');
+      object.classList.add('active');
+      localStorage.setItem(`${obj}State`, 'show');
+      objState = 'show';
+    }
+  }
+}
+
+function render() {
+  getQuotes();
+  setCityLang();
+  // getWeather();
+  setUsername();
 }
