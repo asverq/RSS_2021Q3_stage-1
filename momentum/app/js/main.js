@@ -366,3 +366,70 @@ playListItems.forEach((item, index) => {
     currentMediaName.textContent = `${playListArr[currMedia].title}`;
   }
 })
+
+
+const progressAudio = document.querySelector('.player-duration');
+const progressBarAudio = document.querySelector('.player-progress');
+
+function setProgressBar(e) {
+  const width = this.clientWidth;
+  const offsetX = e.offsetX;
+  audio.currentTime = `${offsetX / width * audio.duration}`
+}
+progressAudio.addEventListener('mousedown', setProgressBar);
+progressAudio.addEventListener('mousedown', () => {
+  progressAudio.addEventListener('mousemove', setProgressBar);
+  document.addEventListener('mouseup', () => {
+    progressAudio.removeEventListener('mousemove', setProgressBar);
+  });
+});
+
+function updateProgressBar(e) {
+  const {
+    duration,
+    currentTime
+  } = e.target;
+  progressBarAudio.style.width = `${currentTime / duration * 100}%`
+}
+audio.addEventListener('timeupdate', updateProgressBar);
+
+const volumeAudio = document.querySelector('.player-volume');
+const volumeProgressAudio = document.querySelector('.volume-progress');
+
+volumeAudio.addEventListener('mousedown', setVolumeBar);
+volumeAudio.addEventListener('mousedown', () => {
+  volumeAudio.addEventListener('mousemove', setVolumeBar);
+  document.addEventListener('mouseup', () => {
+    volumeAudio.removeEventListener('mousemove', setVolumeBar);
+  });
+});
+
+let currVolume = audio.volume;
+let currProgressVolume = 50;
+
+function setVolumeBar(e) {
+  audio.volume = e.offsetX / this.clientWidth;
+  currVolume = audio.volume;
+  volumeProgressAudio.style.width = `${e.offsetX / this.clientWidth * 100}%`;
+  currProgressVolume = e.offsetX / this.clientWidth * 100;
+  volumeBtn.classList.remove('mute');
+}
+
+audio.volume = 0.5;
+volumeProgressAudio.style.width = `50%`;
+
+const volumeBtn = document.querySelector('.player-volume-btn');
+
+volumeBtn.addEventListener('click', toggleVolume);
+
+
+function toggleVolume() {
+  volumeBtn.classList.toggle('mute')
+  if (volumeBtn.classList.contains('mute')) {
+    audio.volume = 0;
+    volumeProgressAudio.style.width = '0%';
+  } else {
+    audio.volume = currVolume;
+    volumeProgressAudio.style.width = `${currProgressVolume}%`;
+  }
+}

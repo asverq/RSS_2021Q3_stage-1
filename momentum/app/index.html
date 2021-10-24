@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,22 +8,29 @@
   <link rel="stylesheet" href="css/style.min.css" />
   <title>momentum</title>
 </head>
+
 <body>
   <header class="header">
     <div class="player">
-      <div class="player-audio-name"></div>
-      <div class="progress-wrap">
-        <div class="player-duration">
-          <div class="player-progress"></div>
+      <div class="player-panel">
+        <div class="player-audio-name"></div>
+        <div class="progress-wrap">
+          <div class="player-duration">
+            <div class="player-progress"></div>
+          </div>
+          <div class="player-volume-wrap">
+            <button class="player-volume-btn">
+            </button>
+            <div class="player-volume">
+              <div class="volume-progress"></div>
+            </div>
+          </div>
         </div>
-        <div class="player-volume">
-          <div class="volume-progress"></div>
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
         </div>
-      </div>
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
       </div>
       <ul class="play-list"></ul>
     </div>
@@ -60,4 +68,5 @@
   </footer>
   <script src="js/main.js"></script>
 </body>
+
 </html>

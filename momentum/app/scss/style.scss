@@ -40,7 +40,6 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 120px;
-    margin-bottom: 28px;
 }
 
 .play-list {
@@ -49,7 +48,6 @@ body {
 }
 
 .play-item {
-    // max-width: 200px;
     width: fit-content;
     position: relative;
     padding: 5px;
@@ -139,29 +137,59 @@ body {
 }
 
 .progress-wrap {
+    margin-bottom: 7px;
     display: flex;
+    align-items: center;
 }
 
 .player-volume,
 .player-duration {
     width: 200px;
     height: 7px;
-    margin-bottom: 5px;
     position: relative;
     border-radius: 3px;
     background-color: rgba(#fff, 0.2);
     overflow: hidden;
+    cursor: pointer;
+}
+
+.player-panel {
+    padding: 10px;
+    background-color: rgba(#fff, 0.1);
+    border-radius: 10px;
 }
 
 .player-volume {
     width: 80px;
+    position: relative;
+
+}
+
+.player-volume-wrap {
     margin-left: 10px;
+    position: relative;
+}
+.player-volume-btn {
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    transform: translateX(-50%);
+    background: url('../svg/volume.svg') left center no-repeat;
+    border: none;
+    cursor: pointer;
+    &.mute {
+        background: url('../svg/volume-mute.svg') left center no-repeat;
+    }
 }
 
 .volume-progress,
 .player-progress {
     height: 7px;
-    width: 20%;
+    width: 0%;
     background-color: rgba(#fff, 0.5);
 }
 
