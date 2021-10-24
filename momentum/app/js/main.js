@@ -214,10 +214,7 @@ let currMedia = 0;
 
 wrapBtn.addEventListener('click', actionMedia);
 
-
-
-const playListArr = [
-  {
+const playListArr = [{
     title: 'Aqua Caelestis',
     src: '../sounds/Aqua Caelestis.mp3'
   },
@@ -243,7 +240,10 @@ playListArr.forEach((el, index) => {
 })
 
 const playItems = document.querySelectorAll('.play-item');
-playItems[currMedia].classList.add('item-active')
+playItems[currMedia].classList.add('item-active');
+
+const currentMediaName = document.querySelector('.player-audio-name');
+currentMediaName.textContent = `${playListArr[currMedia].title}`;
 
 let isPlaying = false;
 
@@ -254,13 +254,9 @@ function actionMedia(e) {
 
   if (e.target === nextBtn) {
     if (currMedia < playListArr.length - 1) {
-      playItems[currMedia].classList.remove('item-active')
       currMedia += 1;
-      playItems[currMedia].classList.add('item-active')
     } else {
-      playItems[currMedia].classList.remove('item-active')
       currMedia = 0;
-      playItems[currMedia].classList.add('item-active')
     }
     if (isPlaying) {
       audio.src = `${playListArr[currMedia].src}`;
@@ -272,13 +268,9 @@ function actionMedia(e) {
 
   if (e.target === prevBtn) {
     if (currMedia > 0) {
-      playItems[currMedia].classList.remove('item-active')
       currMedia -= 1;
-      playItems[currMedia].classList.add('item-active')
     } else {
-      playItems[currMedia].classList.remove('item-active')
       currMedia = playListArr.length - 1;
-      playItems[currMedia].classList.add('item-active')
     }
     if (isPlaying) {
       audio.src = `${playListArr[currMedia].src}`;
@@ -287,10 +279,31 @@ function actionMedia(e) {
       audio.src = `${playListArr[currMedia].src}`;
     }
   }
+
+  resetPlayListIcons()
+  setPlayListIcons()
+
+  currentMediaName.textContent = `${playListArr[currMedia].title}`;
+}
+
+function resetPlayListIcons() {
+  playItems.forEach(item => {
+    item.classList.remove('item-active');
+    item.style.background = 'url("../svg/play.svg") left center no-repeat';
+    item.style.backgroundSize = '7%';
+  })
+}
+
+function setPlayListIcons() {
+  playItems[currMedia].classList.add('item-active');
+  if (isPlaying) {
+    playItems[currMedia].style.background = 'url("../svg/pause.svg") left center no-repeat';
+    playItems[currMedia].style.backgroundSize = '7%';
+  }
 }
 
 function playPauseMedia() {
-  audio.src = `${playListArr[currMedia].src}`
+  audio.src = `${playListArr[currMedia].src}`;
   if (!isPlaying) {
     audio.play();
     isPlaying = true;
@@ -302,3 +315,28 @@ function playPauseMedia() {
   }
 }
 
+const playListItems = document.querySelectorAll('.play-item');
+
+playListItems.forEach((item, index) => {
+  item.addEventListener('click', playListAction);
+
+  function playListAction(e) {
+    currMedia = index;
+    audio.src = `${playListArr[currMedia].src}`;
+    resetPlayListIcons();
+    item.classList.add('item-active');
+    if (item.classList.contains('item-active') && isPlaying) {
+      audio.pause();
+      playBtn.classList.remove('pause');
+      isPlaying = false;
+      item.style.background = 'url("../svg/play.svg") left center no-repeat';
+      item.style.backgroundSize = '7%';
+    } else {
+      audio.play();
+      isPlaying = true;
+      playBtn.classList.add('pause');
+      item.style.background = 'url("../svg/pause.svg") left center no-repeat';
+      item.style.backgroundSize = '7%';
+    }
+  }
+})
