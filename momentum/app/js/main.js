@@ -232,6 +232,8 @@ const playListArr = [{
   }
 ]
 
+audio.src = `${playListArr[currMedia].src}`;
+
 playListArr.forEach((el, index) => {
   const li = document.createElement('li');
   li.setAttribute('class', 'play-item');
@@ -297,6 +299,7 @@ function autoNextAudio() {
     nextAudio();
     resetPlayListIcons();
     setPlayListIcons();
+    currentMediaName.textContent = `${playListArr[currMedia].title}`;
   }
 }
 
@@ -317,7 +320,7 @@ function setPlayListIcons() {
 }
 
 function playPauseMedia() {
-  audio.src = `${playListArr[currMedia].src}`;
+  // audio.src = `${playListArr[currMedia].src}`;
   if (!isPlaying) {
     audio.play();
     isPlaying = true;
@@ -335,8 +338,17 @@ playListItems.forEach((item, index) => {
   item.addEventListener('click', playListAction);
 
   function playListAction(e) {
-    currMedia = index;
-    audio.src = `${playListArr[currMedia].src}`;
+    if (currMedia !== index) {
+      currMedia = index;
+      audio.src = `${playListArr[currMedia].src}`;
+      setTimeout(() => {
+        audio.play();
+        isPlaying = true;
+        playBtn.classList.add('pause');
+        item.style.background = 'url("../svg/pause.svg") left center no-repeat';
+        item.style.backgroundSize = '7%';
+      }, 0);
+    }
     resetPlayListIcons();
     item.classList.add('item-active');
     if (item.classList.contains('item-active') && isPlaying) {
@@ -352,5 +364,6 @@ playListItems.forEach((item, index) => {
       item.style.background = 'url("../svg/pause.svg") left center no-repeat';
       item.style.backgroundSize = '7%';
     }
+    currentMediaName.textContent = `${playListArr[currMedia].title}`;
   }
 })
