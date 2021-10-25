@@ -232,19 +232,19 @@ wrapBtn.addEventListener('click', actionMedia);
 
 const playListArr = [{
     title: 'Aqua Caelestis',
-    src: '../sounds/Aqua Caelestis.mp3'
+    src: 'sounds/Aqua Caelestis.mp3'
   },
   {
     title: 'Ennio Morricone',
-    src: '../sounds/Ennio Morricone.mp3'
+    src: 'sounds/Ennio Morricone.mp3'
   },
   {
     title: 'River Flows In You',
-    src: '../sounds/River Flows In You.mp3'
+    src: 'sounds/River Flows In You.mp3'
   },
   {
     title: 'Summer Wind',
-    src: '../sounds/Summer Wind.mp3'
+    src: 'sounds/Summer Wind.mp3'
   }
 ]
 
@@ -322,7 +322,7 @@ function autoNextAudio() {
 function resetPlayListIcons() {
   playItems.forEach(item => {
     item.classList.remove('item-active');
-    item.style.background = 'url("../svg/play.svg") left center no-repeat';
+    item.style.background = 'url("svg/play.svg") left center no-repeat';
     item.style.backgroundSize = '20px';
   })
 }
@@ -330,7 +330,7 @@ function resetPlayListIcons() {
 function setPlayListIcons() {
   playItems[currMedia].classList.add('item-active');
   if (isPlaying) {
-    playItems[currMedia].style.background = 'url("../svg/pause.svg") left center no-repeat';
+    playItems[currMedia].style.background = 'url("svg/pause.svg") left center no-repeat';
     playItems[currMedia].style.backgroundSize = '20px';
   }
 }
@@ -360,7 +360,7 @@ playListItems.forEach((item, index) => {
         audio.play();
         isPlaying = true;
         playBtn.classList.add('pause');
-        item.style.background = 'url("../svg/pause.svg") left center no-repeat';
+        item.style.background = 'url("svg/pause.svg") left center no-repeat';
         item.style.backgroundSize = '20px';
       }, 0);
     }
@@ -370,13 +370,13 @@ playListItems.forEach((item, index) => {
       audio.pause();
       playBtn.classList.remove('pause');
       isPlaying = false;
-      item.style.background = 'url("../svg/play.svg") left center no-repeat';
+      item.style.background = 'url("svg/play.svg") left center no-repeat';
       item.style.backgroundSize = '20px';
     } else {
       audio.play();
       isPlaying = true;
       playBtn.classList.add('pause');
-      item.style.background = 'url("../svg/pause.svg") left center no-repeat';
+      item.style.background = 'url("svg/pause.svg") left center no-repeat';
       item.style.backgroundSize = '20px';
     }
     currentMediaName.textContent = `${playListArr[currMedia].title}`;
