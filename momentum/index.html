@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/style.min.css" />
+  <title>momentum</title>
+</head>
+
+<body>
+  <header class="header">
+    <div class="player">
+      <div class="player-panel">
+        <div class="player-audio-name"></div>
+        <div class="progress-wrap">
+          <div class="player-duration">
+            <div class="player-progress"></div>
+          </div>
+          <div class="player-volume-wrap">
+            <button class="player-volume-btn">
+            </button>
+            <div class="player-volume">
+              <div class="volume-progress"></div>
+            </div>
+          </div>
+        </div>
+        <div class="player-controls">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <div class="player-audio-duration">
+          00:00 / 00:00
+        </div>
+      </div>
+      <ul class="play-list"></ul>
+    </div>
+    <div class="weather">
+      <input type="text" class="city" />
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" />
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="quote-container">
+      <button class="change-quote"></button>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+  </footer>
+  <div class="settings-wrap">
+    <div class="lang-set">
+      <span class="lang-text">Language:</span>
+      <label class="set-english">
+        EN
+        <input type="radio" name="set-lang" id="set-english">
+      </label>
+      <label class="set-russian">
+        RU
+        <input type="radio" name="set-lang" id="set-russian">
+      </label>
+    </div>
+    <div class="blocks">
+      <span class="blocks-text">show / hide blocks</span>
+      <div>
+        <label class="label-player">
+          <span class="player-text">Show Audio Player</span>
+          <input type="checkbox" id="set-player" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-time">
+          <span class="time-text">Show Time</span>
+          <input type="checkbox" id="set-time" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-date">
+          <span class="date-text">Show Date</span>
+          <input type="checkbox" id="set-date" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-greeting">
+          <span class="greeting-text">Show Greeting</span>
+          <input type="checkbox" id="set-greeting-container" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-weather">
+          <span class="weather-text">Show Weather</span>
+          <input type="checkbox" id="set-weather" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-quote">
+          <span class="quote-text">Show Quote</span>
+          <input type="checkbox" id="set-quote-container" checked>
+        </label>
+      </div>
+
+    </div>
+  </div>
+  <button class="settings-btn"></button>
+  <div class="overlay"></div>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
