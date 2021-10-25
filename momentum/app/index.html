@@ -62,35 +62,65 @@
       <input type="text" class="name" />
     </div>
   </main>
-  <button class="change-quote"></button>
   <footer class="footer">
-    <div>
+    <div class="quote-container">
+      <button class="change-quote"></button>
       <div class="quote"></div>
       <div class="author"></div>
     </div>
   </footer>
   <div class="settings-wrap">
-      <div class="lang-set">
-        Language:
-        <label class="set-english">
-          EN
-          <input type="radio" name="set-lang" id="set-english">
-        </label>
-        <label class="set-russian">
-          RU
-          <input type="radio" name="set-lang" id="set-russian">
-        </label>
-      </div>
-      <div class="blocks">
+    <div class="lang-set">
+      <span class="lang-text">Language:</span>
+      <label class="set-english">
+        EN
+        <input type="radio" name="set-lang" id="set-english">
+      </label>
+      <label class="set-russian">
+        RU
+        <input type="radio" name="set-lang" id="set-russian">
+      </label>
+    </div>
+    <div class="blocks">
+      <span class="blocks-text">show / hide blocks</span>
+      <div>
         <label class="label-player">
-          Show Audio Player
+          <span class="player-text">Show Audio Player</span>
           <input type="checkbox" id="set-player" checked>
         </label>
+      </div>
+      <div>
         <label class="label-time">
-          Show Time
+          <span class="time-text">Show Time</span>
           <input type="checkbox" id="set-time" checked>
         </label>
       </div>
+      <div>
+        <label class="label-date">
+          <span class="date-text">Show Date</span>
+          <input type="checkbox" id="set-date" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-greeting">
+          <span class="greeting-text">Show Greeting</span>
+          <input type="checkbox" id="set-greeting-container" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-weather">
+          <span class="weather-text">Show Weather</span>
+          <input type="checkbox" id="set-weather" checked>
+        </label>
+      </div>
+      <div>
+        <label class="label-quote">
+          <span class="quote-text">Show Quote</span>
+          <input type="checkbox" id="set-quote-container" checked>
+        </label>
+      </div>
+
+    </div>
   </div>
   <button class="settings-btn"></button>
   <div class="overlay"></div>

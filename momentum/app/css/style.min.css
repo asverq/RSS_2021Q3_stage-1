@@ -1003,6 +1003,10 @@ body {
   transition: background-image 1s ease-in-out;
 }
 
+label {
+  margin: 0 3px;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1081,6 +1085,19 @@ body {
 
 .item-active::before {
   color: #C5B358;
+}
+
+.quote-container {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.quote-container.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .player-icon,
@@ -1243,6 +1260,16 @@ body {
   width: 180px;
   min-height: 180px;
   text-align: left;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.weather.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 .weather-error {
@@ -1356,6 +1383,7 @@ body {
   margin-bottom: 10px;
   font-family: 'Arial-MT';
   font-size: 100px;
+  color: rgba(255, 255, 255, 0.7);
   letter-spacing: -4px;
   opacity: 0;
   visibility: hidden;
@@ -1371,12 +1399,26 @@ body {
 }
 
 .date {
-  min-height: 28px;
+  height: 0;
   font-size: 24px;
   margin-bottom: 20px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.date.active {
+  height: 28px;
+  opacity: 1;
+  visibility: visible;
 }
 
 .greeting-container {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1388,9 +1430,17 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-height: 48px;
   width: 100vw;
   font-size: 40px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.greeting-container.active {
+  height: 48px;
+  visibility: visible;
+  opacity: 1;
 }
 
 .greeting {
@@ -1484,6 +1534,8 @@ body {
   bottom: 30px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.9);
+  font-size: 12px;
+  text-align: right;
   z-index: 100;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
@@ -1507,19 +1559,41 @@ body {
   opacity: 0.5;
 }
 
+.blocks,
+.lang-set {
+  margin-bottom: 2px;
+  padding: 5px;
+  border: 1px #555 solid;
+  border-radius: 5px;
+}
+
+.blocks-text {
+  display: inline-block;
+  padding-bottom: 2px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  text-decoration: underline;
+}
+
 .overlay {
   height: 100%;
   width: 100%;
-  display: none;
+  visibility: hidden;
+  opacity: 0;
   background-color: rgba(255, 255, 255, 0.3);
   position: absolute;
   bottom: 0;
   left: 0;
   z-index: 50;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .overlay.active {
-  display: block;
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 768px) {
