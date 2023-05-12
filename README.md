@@ -2,7 +2,7 @@
 Private repository for @asverq
 
 ## Projects
-* [museum](https://rolling-scopes-school.github.io/asverq-JSFE2021Q3/museum/)
-* [museum-adaptive](https://rolling-scopes-school.github.io/asverq-JSFE2021Q3/museum-adaptive/)
-* [museum-dom](https://rolling-scopes-school.github.io/asverq-JSFE2021Q3/museum-dom/)
-* [momentum](https://rolling-scopes-school.github.io/asverq-JSFE2021Q3/momentum/)
+* [museum](https://asverq.github.io/RSS_2021Q3_stage-1/museum/)
+* [museum-adaptive](https://asverq.github.io/RSS_2021Q3_stage-1/museum-adaptive/)
+* [museum-dom](https://asverq.github.io/RSS_2021Q3_stage-1/museum-dom/)
+* [momentum](https://asverq.github.io/RSS_2021Q3_stage-1/momentum/)
